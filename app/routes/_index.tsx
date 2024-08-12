@@ -92,7 +92,7 @@ export default function Index() {
           </button>
         </div>
         <h1 className="text-5xl font-semibold mb-4 text-center">
-          Hello, friend
+          Hello, friend.
         </h1>
 
         <div className="text-center">{getNextEpisode()}</div>
