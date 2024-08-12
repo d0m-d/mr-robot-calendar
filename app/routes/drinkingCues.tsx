@@ -14,9 +14,11 @@ export default function DrinkingCues() {
   const actionCues = data.filter((cue) => cue.type === "action");
   return (
     <div>
-      <button className="m-4 p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
-        <Link to="/">Back to Calendar</Link>
-      </button>
+      <Link to="/">
+        <button className="m-4 p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
+          Back to Calendar
+        </button>
+      </Link>
       <div className="flex justify-center mb-8">
         <div className="bg-gray-100/85 w-11/12 lg:w-3/4 border-4 border-red-500 rounded-md mt-8 p-4 lg:pb-8">
           <h1 className="text-4xl font-semibold mb-8 text-center">
