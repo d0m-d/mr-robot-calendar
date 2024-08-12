@@ -88,7 +88,7 @@ export default function Index() {
       <div className="font-sans p-4 bg-gray-800/85 border-4 border-red-500 w-3/4 mt-16 pb-8 rounded-md">
         <div className="flex justify-end">
           <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
-            <Link to="/drinkingCues">Drinking Game</Link>
+            <Link to="/drinkingCues">Drinking Gameaaa</Link>
           </button>
         </div>
         <h1 className="text-5xl font-semibold mb-4 text-center">
