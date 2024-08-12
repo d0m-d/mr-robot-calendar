@@ -85,8 +85,7 @@ export default function Index() {
   };
   return (
     <div>
-      <div className="flex lg:hidden justify-end"></div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-8">
         <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 lg:w-3/4 mt-16 pb-8 rounded-md">
           <h1 className="text-3xl md:text-5xl font-semibold mb-4 text-center">
             Hello, friend
