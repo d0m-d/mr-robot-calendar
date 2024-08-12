@@ -56,7 +56,7 @@ export default function Index() {
     if (daysTilNextEpisode && daysTilNextEpisode >= 1) {
       return (
         <div>
-          <div className="flex justify-center text-3xl">
+          <div className="flex justify-center text-2xl md:text-3xl">
             <span className="font-bold text-red-500 mr-2 border-2 px-2 rounded-md border-red-500">
               {daysTilNextEpisode}
             </span>
@@ -84,25 +84,27 @@ export default function Index() {
     }
   };
   return (
-    <div className="flex justify-center">
-      <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 lg:w-3/4 mt-16 pb-8 rounded-md">
-        <div className="flex justify-end">
-          <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
-            <Link to="/drinkingCues">Drinking Game</Link>
-          </button>
-        </div>
-        <h1 className="text-5xl font-semibold mb-4 text-center">
-          Hello, friend
-        </h1>
+    <div>
+      <div className="flex lg:hidden justify-end"></div>
+      <div className="flex justify-center">
+        <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 lg:w-3/4 mt-16 pb-8 rounded-md">
+          <h1 className="text-3xl md:text-5xl font-semibold mb-4 text-center">
+            Hello, friend
+          </h1>
 
-        <div className="text-center">{getNextEpisode()}</div>
-        <div className="flex justify-center my-8">
-          <iframe
-            src="https://calendar.google.com/calendar/embed?height=800&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&showPrint=0&title=Mr%20Robot%20Watch%20Dates&showCalendars=0&src=bXJyb2JvdGNhbGVuZGFyQGdtYWlsLmNvbQ&color=%23D50000"
-            height="800"
-            width="1200"
-            scrolling="no"
-          ></iframe>
+          <div className="text-center">{getNextEpisode()}</div>
+          <div className="flex justify-center my-8">
+            <iframe
+              src="https://calendar.google.com/calendar/embed?height=800&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&showPrint=0&title=Mr%20Robot%20Watch%20Dates&showCalendars=0&src=bXJyb2JvdGNhbGVuZGFyQGdtYWlsLmNvbQ&color=%23D50000"
+              scrolling="no"
+              className="h-[600px] w-[800px] lg:h-[800px] lg:w-[1200px]"
+            ></iframe>
+          </div>
+          <div className="flex justify-end">
+            <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
+              <Link to="/drinkingCues">view drinking game cues</Link>
+            </button>
+          </div>
         </div>
       </div>
     </div>
