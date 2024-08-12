@@ -97,7 +97,7 @@ export default function Index() {
             <iframe
               src="https://calendar.google.com/calendar/embed?height=800&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&showPrint=0&title=Mr%20Robot%20Watch%20Dates&showCalendars=0&src=bXJyb2JvdGNhbGVuZGFyQGdtYWlsLmNvbQ&color=%23D50000"
               scrolling="no"
-              className="h-[600px] w-[800px] lg:h-[800px] lg:w-[1200px]"
+              className="h-[500px] w-[800px] lg:h-[800px] lg:w-[1200px]"
             ></iframe>
           </div>
           <div className="flex justify-end">
