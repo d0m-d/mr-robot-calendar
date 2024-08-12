@@ -14,11 +14,11 @@ export default function DrinkingCues() {
   const actionCues = data.filter((cue) => cue.type === "action");
   return (
     <div className="flex justify-center">
-      <div className="bg-gray-100/85 w-11/12 lg:w-3/4 rounded-md mt-8 pb-4">
-        <h1 className="text-4xl font-semibold m-4 text-center">
+      <div className="bg-gray-100/85 w-11/12 lg:w-3/4 border-4 border-red-500 rounded-md mt-8 p-4">
+        <h1 className="text-4xl font-semibold mb-8 text-center">
           Mr. Robot Drinking Cues
         </h1>
-        <div className="mx-8 lg:flex lg:justify-between">
+        <div className="m-8 lg:flex lg:justify-between">
           <div className="mt-4 lg:mt-0">
             <h2 className="text-xl font-medium mb-4">Action cues</h2>
             {actionCues.map((cue) => (

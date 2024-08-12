@@ -53,32 +53,45 @@ export default function Index() {
           parseInt(nextEpisode.watchDate.split(" ")[1]);
       }
     }
-    return (
-      <div>
-        <div className="flex justify-center text-2xl">
-          <span className="font-bold text-red-500 mr-2 border-2 px-2 rounded-md border-red-500">
-            {daysTilNextEpisode}
-          </span>
-          <span>
-            day{daysTilNextEpisode && daysTilNextEpisode > 1 && "s"} until next
-            episode!
-          </span>
+    if (daysTilNextEpisode && daysTilNextEpisode >= 1) {
+      return (
+        <div>
+          <div className="flex justify-center text-3xl">
+            <span className="font-bold text-red-500 mr-2 border-2 px-2 rounded-md border-red-500">
+              {daysTilNextEpisode}
+            </span>
+            <span>
+              day{daysTilNextEpisode && daysTilNextEpisode > 1 && "s"} until
+              next episode!
+            </span>
+          </div>
+          <div className="mt-2 flex justify-center text-xl">
+            the next episode is{" "}
+            <span className="font-semibold mx-2">{nextEpisode.title}</span> on{" "}
+            <span className="font-semibold mx-2">{nextEpisode.watchDate}</span>
+          </div>
         </div>
-        <div className="mt-2 flex justify-center">
-          the next episode is{" "}
-          <span className="font-semibold mx-2">{nextEpisode.title}</span> on{" "}
-          <span className="font-semibold mx-2">{nextEpisode.watchDate}</span>
+      );
+    } else {
+      return (
+        <div>
+          <div className="mt-2 flex justify-center text-xl">
+            Today's episode is
+            <span className="font-semibold mx-2">{nextEpisode.title}</span>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   };
   return (
     <div className="flex justify-center">
-      <div className="font-sans p-4 bg-gray-800/85 w-3/4 mt-16 pb-8 rounded-md">
+      <div className="font-sans p-4 bg-gray-800/85 border-4 border-red-500 w-3/4 mt-16 pb-8 rounded-md">
         <div className="flex justify-end">
-          <Link to="/drinkingCues">Play Drinking Game</Link>
+          <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
+            <Link to="/drinkingCues">Drinking Game</Link>
+          </button>
         </div>
-        <h1 className="text-4xl font-semibold mb-4 text-center">
+        <h1 className="text-5xl font-semibold mb-4 text-center">
           Hello, friend
         </h1>
 
