@@ -65,7 +65,7 @@ export default function Index() {
               next episode!
             </span>
           </div>
-          <div className="mt-2 flex justify-center text-xl">
+          <div className="mt-2 hidden lg:flex justify-center text-xl">
             the next episode is{" "}
             <span className="font-semibold mx-2">{nextEpisode.title}</span> on{" "}
             <span className="font-semibold mx-2">{nextEpisode.watchDate}</span>
@@ -85,7 +85,7 @@ export default function Index() {
   };
   return (
     <div className="flex justify-center">
-      <div className="font-sans p-4 bg-gray-800/85 border-4 border-red-500 w-3/4 mt-16 pb-8 rounded-md">
+      <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 lg:w-3/4 mt-16 pb-8 rounded-md">
         <div className="flex justify-end">
           <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
             <Link to="/drinkingCues">Drinking Game</Link>
