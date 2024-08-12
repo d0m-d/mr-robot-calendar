@@ -22,15 +22,15 @@ export default function DrinkingCues() {
           <h1 className="text-4xl font-semibold mb-8 text-center">
             Mr. Robot Drinking Cues
           </h1>
-          <div className="m-8 lg:flex lg:justify-between">
+          <div className="mx-4 lg:flex lg:justify-between">
             <div className="mt-8 lg:mt-0">
               <h2 className="text-xl font-medium mb-4">Word cues</h2>
 
               {wordCues.map((cue) => (
-                <p className="mt-4 lg:mt-0">• "{cue.cue}"</p>
+                <p className="mt-2">• "{cue.cue}"</p>
               ))}
             </div>
-            <div className="mt-8">
+            <div className="mt-8 lg:mt-0">
               <h2 className="text-xl font-medium mb-4">Action cues</h2>
               {actionCues.map((cue) => (
                 <p className="mt-2">• {cue.cue}</p>
