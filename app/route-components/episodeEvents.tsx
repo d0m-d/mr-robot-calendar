@@ -23,7 +23,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
   const [selectedNotes, setSelectedNotes] = useState<string[]>([]);
   return (
     <div className="flex justify-center">
-      <div className="bg-gray-900/90 rounded-md w-11/12 p-4">
+      <div className="bg-slate-100/90 rounded-md w-11/12 p-4">
         {episodeEventsByDate.map((eventDate) => {
           return (
             <div
@@ -53,7 +53,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                         {event.event}
                         {event.notes && (
                           <button
-                            className="text-sm ml-4 text-cyan-200"
+                            className="text-sm ml-4 text-cyan-800"
                             onClick={() => {
                               if (!eventSelected) {
                                 setSelectedNotes([...selectedNotes, event.id]);
