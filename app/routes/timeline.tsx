@@ -78,7 +78,7 @@ export default function Timeline() {
                       {episode.id}
                     </p>
                     <p className="hidden lg:flex w-2/3">{episode.title}</p>
-                    <div className="w-2/3 lg:w-1/3 text-end">
+                    <div className="w-3/4 lg:w-1/3 text-end">
                       <span>
                         {formatDate(episode.startDate)}
                         {episode.startDate !== episode.endDate && (
