@@ -45,7 +45,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                 return (
                   <div className="mt-2" key={event.id}>
                     <div className="lg:flex justify-center">
-                      <span className="mr-2 uppercase w-1/12">
+                      <span className="mr-2 uppercase w-1/12 font-medium">
                         {event.timeOfDay}
                         {event.timeOfDay !== "" && ":"}
                       </span>
@@ -71,7 +71,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                     </div>
 
                     {eventSelected && event.notes && (
-                      <div className="m-2 border-2 rounded-md border-cyan-300 p-2 w-11/12 lg:w-1/2 mx-auto">
+                      <div className="m-2 border-2 rounded-md border-cyan-200 p-2 w-11/12 lg:w-1/2 mx-auto">
                         <p className="text-center">{event.notes}</p>
                       </div>
                     )}
