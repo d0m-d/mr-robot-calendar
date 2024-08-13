@@ -72,7 +72,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
 
                     {eventSelected && event.notes && (
                       <div className="m-2 border-2 rounded-md border-cyan-200 p-2 w-11/12 lg:w-1/2 mx-auto">
-                        <p className="text-center">{event.notes}</p>
+                        <p className="lg:text-center">{event.notes}</p>
                       </div>
                     )}
                   </div>
