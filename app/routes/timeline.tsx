@@ -77,7 +77,14 @@ export default function Timeline() {
                       <span>
                         {formatDate(episode.startDate)}
                         {episode.startDate !== episode.endDate && (
-                          <span> - {formatDate(episode.endDate)}</span>
+                          <span>
+                            {" "}
+                            -{" "}
+                            {episode.startDate.split("-")[1] ===
+                            episode.endDate.split("-")[1]
+                              ? episode.endDate.split("-")[2]
+                              : formatDate(episode.endDate)}
+                          </span>
                         )}
                       </span>
                     </div>
