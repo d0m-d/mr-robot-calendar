@@ -66,8 +66,8 @@ export default function Index() {
             </span>
           </div>
           <div className="mt-2 hidden lg:flex justify-center text-xl">
-            the next episode is{" "}
-            <span className="font-semibold mx-2">{nextEpisode.title}</span> on{" "}
+            the next episode is
+            <span className="font-semibold mx-2">{nextEpisode.title}</span> on
             <span className="font-semibold mx-2">{nextEpisode.watchDate}</span>
           </div>
         </div>
