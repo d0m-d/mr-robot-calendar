@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { formatDate } from "~/helpers/formatDate";
 import { EventType } from "~/helpers/types";
 
@@ -30,11 +30,14 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
               key={eventDate.date}
               className="border-b-2 border-slate-300 last:border-0 first:pt-0 py-4"
             >
-              <p>{eventDate.events[0].dayOfWeek}</p>
+              <div>
+                <p>{eventDate.events[0].dayOfWeek}</p>
 
-              <p className="font-semibold text-lg">
-                {formatDate(eventDate.date)}
-              </p>
+                <p className="font-semibold text-lg">
+                  {formatDate(eventDate.date)}
+                </p>
+              </div>
+
               {eventDate.events.map((event) => {
                 const eventSelected = selectedNotes.find(
                   (note) => note === event.id
@@ -68,8 +71,8 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                     </div>
 
                     {eventSelected && event.notes && (
-                      <div className="m-2 border-2 rounded-md border-cyan-300 p-2 w-3/4 lg:w-1/2 mx-auto">
-                        <p className="">{event.notes}</p>
+                      <div className="m-2 border-2 rounded-md border-cyan-300 p-2 w-11/12 lg:w-1/2 mx-auto">
+                        <p className="text-center">{event.notes}</p>
                       </div>
                     )}
                   </div>
