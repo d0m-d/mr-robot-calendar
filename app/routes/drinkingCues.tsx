@@ -20,7 +20,7 @@ export default function DrinkingCues() {
         </button>
       </Link>
       <div className="flex justify-center mb-8">
-        <div className="bg-gray-100/85 w-11/12 lg:w-3/4 border-4 border-red-500 rounded-md mt-8 p-4 lg:pb-8">
+        <div className="bg-gray-100/90 w-11/12 lg:w-3/4 border-4 border-red-500 rounded-md mt-8 p-4 lg:pb-8">
           <h1 className="lg:text-4xl text-3xl font-semibold mb-8 text-center">
             Drinking Game Cues
           </h1>

@@ -54,6 +54,9 @@ export default function Timeline() {
           <h1 className="text-center text-3xl lg:text-4xl font-semibold mb-4">
             Timeline of Episodes
           </h1>
+          <p className="text-center text-sm text-gray-800">
+            all dates are in the year 2015
+          </p>
           {seasons.map((season, index) => (
             <div key={index}>
               <div className="lg:ml-8 mt-4">
