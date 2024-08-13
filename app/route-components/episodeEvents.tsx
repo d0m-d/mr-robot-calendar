@@ -23,12 +23,12 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
   const [selectedNotes, setSelectedNotes] = useState<string[]>([]);
   return (
     <div className="flex justify-center">
-      <div className="bg-slate-100/90 rounded-md w-11/12 p-4">
+      <div className="bg-slate-100/90 rounded-md w-11/12 px-4">
         {episodeEventsByDate.map((eventDate) => {
           return (
             <div
               key={eventDate.date}
-              className="border-b-2 border-slate-300 last:border-0 first:pt-0 py-4"
+              className="border-b-2 border-slate-300 last:border-0 py-2"
             >
               <div>
                 <p>{eventDate.events[0].dayOfWeek}</p>
@@ -43,7 +43,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                   (note) => note === event.id
                 );
                 return (
-                  <div className="mt-2" key={event.id}>
+                  <div className="first:mt-0 mt-2 last:mb-2" key={event.id}>
                     <div className="lg:flex justify-center">
                       <span className="mr-2 uppercase w-1/12 font-medium">
                         {event.timeOfDay}

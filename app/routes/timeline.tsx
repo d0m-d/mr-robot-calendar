@@ -74,7 +74,9 @@ export default function Timeline() {
                   key={episode.id}
                 >
                   <div className="flex justify-between lg:mx-16 p-2 text-lg">
-                    <p className="font-semibold w-1/6 lg:w-2/3">{episode.id}</p>
+                    <p className="font-semibold w-1/12 lg:w-2/3">
+                      {episode.id}
+                    </p>
                     <p className="hidden lg:flex w-2/3">{episode.title}</p>
                     <div className="w-2/3 lg:w-1/3 text-end">
                       <span>
