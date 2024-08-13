@@ -71,7 +71,7 @@ export default function Timeline() {
                   key={episode.id}
                 >
                   <div className="flex justify-between lg:mx-16 p-2 text-lg">
-                    <p className="font-semibold w-1/3 lg:w-2/3">{episode.id}</p>
+                    <p className="font-semibold w-1/6 lg:w-2/3">{episode.id}</p>
                     <p className="hidden lg:flex w-2/3">{episode.title}</p>
                     <div className="w-2/3 lg:w-1/3 text-end">
                       <span>
@@ -93,10 +93,10 @@ export default function Timeline() {
           ))}
         </div>
       </div>
-      <p className="mt-4 bg-cyan-100/50">
-        thank you u/DesignerPhrase for providing detailed Season 1-3{" "}
+      <p className="text-center mt-4 bg-cyan-100/50">
+        thank you to u/DesignerPhrase for providing detailed Season 1-3{" "}
         <Link
-          className="mr-2 font-semibold text-cyan-100"
+          className="mx-2 font-semibold text-cyan-900"
           to="https://docs.google.com/spreadsheets/d/1kbgnagAGW7v0f9OzNSlL2XnA-pOwvscS2RJtbgT9ga8/edit?gid=0#gid=0"
         >
           timeline
