@@ -2,10 +2,15 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { formatDate } from "~/helpers/formatDate";
 import { EpisodeType } from "~/helpers/types";
+import { EpisodeEvents } from "~/route-components/episodeEvents";
 import { db } from "~/utils/db.server";
 
 export const loader = async () => {
-  const data = db.episode.findMany();
+  const data = db.episode.findMany({
+    include: {
+      events: true,
+    },
+  });
   return data;
 };
 type LoaderType = Awaited<ReturnType<typeof loader>>;
@@ -49,8 +54,8 @@ export default function Timeline() {
           <h1 className="text-center text-3xl lg:text-4xl font-semibold mb-4">
             Timeline of Episodes
           </h1>
-          {seasons.map((season) => (
-            <div>
+          {seasons.map((season, index) => (
+            <div key={index}>
               <div className="lg:ml-8 mt-4">
                 <h2 className="font-medium text-2xl lg:text-3xl">
                   Season {seasons.indexOf(season) + 1}
@@ -62,17 +67,13 @@ export default function Timeline() {
               </div>
               {season.map((episode) => (
                 <div
-                  onClick={() =>
-                    selectedEpisode !== episode.id
-                      ? setSelectedEpisode(episode.id)
-                      : setSelectedEpisode(0)
-                  }
+                  onClick={() => setSelectedEpisode(episode.id)}
                   key={episode.id}
                 >
                   <div className="flex justify-between lg:mx-16 p-2 text-lg">
-                    <p className="font-semibold">{episode.id}</p>
-                    <p className="hidden lg:flex">{episode.title}</p>
-                    <div>
+                    <p className="font-semibold w-2/3">{episode.id}</p>
+                    <p className="hidden lg:flex w-2/3">{episode.title}</p>
+                    <div className="w-1/3 text-end">
                       <span>
                         {formatDate(episode.startDate)}
                         {episode.startDate !== episode.endDate && (
@@ -82,8 +83,8 @@ export default function Timeline() {
                     </div>
                   </div>
                   {selectedEpisode === episode.id && (
-                    <div>
-                      <p>DETAILS ABOUT THIS EPISODE BLAH BLAH BLAHBLAH</p>
+                    <div key={episode.id}>
+                      <EpisodeEvents events={episode.events ?? []} />
                     </div>
                   )}
                 </div>
@@ -92,6 +93,16 @@ export default function Timeline() {
           ))}
         </div>
       </div>
+      <p className="mt-4 bg-cyan-100/50">
+        thank you u/DesignerPhrase for providing detailed Season 1-3{" "}
+        <Link
+          className="mr-2 font-semibold text-cyan-100"
+          to="https://docs.google.com/spreadsheets/d/1kbgnagAGW7v0f9OzNSlL2XnA-pOwvscS2RJtbgT9ga8/edit?gid=0#gid=0"
+        >
+          timeline
+        </Link>
+        and notes
+      </p>
     </div>
   );
 }
