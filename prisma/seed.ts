@@ -4,12 +4,12 @@ async function seed() {
   const prisma = new PrismaClient();
 
   try {
-    await prisma.episode.update({
+    await prisma.drinkingCue.update({
       where: {
-        id: 308,
+        id: "938abadf-4b67-4c30-a534-de0749677398",
       },
       data: {
-        endDate: "2015-10-21",
+        cue: "camera shot behind/above car",
       },
     });
   } catch (e) {

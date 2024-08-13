@@ -99,10 +99,15 @@ export default function Index() {
               className="h-[500px] w-[800px] lg:h-[800px] lg:w-[1200px] rounded-md"
             ></iframe>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-between">
+            <Link to="/timeline">
+              <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
+                full series timeline
+              </button>
+            </Link>
             <Link to="/drinkingCues">
               <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
-                view drinking game cues
+                drinking game cues
               </button>
             </Link>
           </div>
