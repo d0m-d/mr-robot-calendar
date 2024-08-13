@@ -101,12 +101,12 @@ export default function Index() {
           </div>
           <div className="flex justify-between">
             <Link to="/timeline">
-              <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
+              <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white mx-2">
                 full series timeline
               </button>
             </Link>
             <Link to="/drinkingCues">
-              <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
+              <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white mx-2">
                 drinking game cues
               </button>
             </Link>
