@@ -78,7 +78,7 @@ export default function Timeline() {
                       {episode.id}
                     </p>
                     <p className="hidden lg:flex w-2/3">{episode.title}</p>
-                    <div className="w-3/4 lg:w-1/3 text-end">
+                    <div className="w-5/6 lg:w-1/3 text-end">
                       <span>
                         {formatDate(episode.startDate)}
                         {episode.startDate !== episode.endDate && (
@@ -87,7 +87,7 @@ export default function Timeline() {
                             -{" "}
                             {episode.startDate.split("-")[1] ===
                             episode.endDate.split("-")[1]
-                              ? episode.endDate.split("-")[2]
+                              ? parseInt(episode.endDate.split("-")[2])
                               : formatDate(episode.endDate)}
                           </span>
                         )}
