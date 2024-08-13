@@ -109,6 +109,7 @@ export default function Timeline() {
         thank you to u/DesignerPhrase for providing detailed Season 1-3{" "}
         <Link
           className="mx-2 font-semibold text-cyan-900"
+          target="_blank"
           to="https://docs.google.com/spreadsheets/d/1kbgnagAGW7v0f9OzNSlL2XnA-pOwvscS2RJtbgT9ga8/edit?gid=0#gid=0"
         >
           timeline
