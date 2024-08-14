@@ -96,7 +96,13 @@ export default function Timeline() {
                   </div>
                   {selectedEpisode === episode.id && (
                     <div key={episode.id}>
-                      <EpisodeEvents events={episode.events ?? []} />
+                      <EpisodeEvents
+                        events={
+                          episode.events?.filter(
+                            (event) => event.flashback === null
+                          ) ?? []
+                        }
+                      />
                     </div>
                   )}
                 </div>

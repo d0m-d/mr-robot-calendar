@@ -15,4 +15,5 @@ export type EventType = {
   timeOfDay: string;
   notes?: string | undefined | null;
   episodeId: number;
+  flashback?: boolean | undefined | null;
 };

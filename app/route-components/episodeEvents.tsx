@@ -24,7 +24,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
   return (
     <div className="flex justify-center">
       <div className="bg-slate-100/90 rounded-md w-11/12 px-4">
-        {episodeEventsByDate.map((eventDate) => {
+        {episodeEventsByDate.map((eventDate, index) => {
           return (
             <div
               key={eventDate.date}

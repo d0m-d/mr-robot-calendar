@@ -38,4 +38,5 @@ model Event {
   timeOfDay String
   episode   Episode @relation(fields: [episodeId], references: [id])
   episodeId Int
+  flashback Boolean?
 }

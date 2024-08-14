@@ -8,67 +8,21 @@ async function seed() {
       data: [
         {
           event:
-            "Elliot begins his routine anew; he meets Leon at 8 AM for breakfast. At 10 he cleans up. At noon he meets Leon for lunch. At 2 PM they attend the baseball court, where he usually encounters Hot Carla.",
-          date: "2015-06-09",
+            "Darlene and Trenton go over the difficulty of training Angela. Mr. Robot places Elliot in his 90s dream, awakening in the afternoon. Cisco receives the modded femtocell from Zhou, and gets a needle buried in his nailbed for talking back.",
+          date: "2015-07-02",
           timeOfDay: "day",
-          dayOfWeek: "Monday",
-          episodeId: 201,
-          notes: "Elliot has been in his loop for one month.",
-        },
-        {
-          event:
-            "Krista visits Elliot. At 12:40, he returns to his conflict; Mr. Robot cajoling him into action, Elliot demanding Tyrell's location.",
-          date: "2015-06-10",
-          timeOfDay: "day",
-          dayOfWeek: "Tuesday",
-          episodeId: 201,
-          notes:
-            "Elliot states that Darlene occasionally visits him. Elliot alludes to Mr. Robot to Krista (for the first time?) Mr. Robot doesn't admit that he doesn't know where Tyrell is.",
-        },
-        {
-          event:
-            "Darlene and the new fsociety recruits castrate the Wall St. bull.",
-          date: "2015-06-10",
-          timeOfDay: "night",
-          dayOfWeek: "Tuesday",
-          episodeId: 201,
-        },
-        {
-          event:
-            "Susan Jacobs jogs through the swap market, returning at 6:37 PM, before Darlene forces her out of the smart house, occupying it after 9:40 PM.",
-          date: "2015-06-11",
-          timeOfDay: "evening",
           dayOfWeek: "Wednesday",
-          episodeId: 201,
+          episodeId: 206,
           notes:
-            "Is her route the same as Angela's with the thief? Home system confirms Weds. June 11th. Frank Cody makes his first appearance, and alludes to coming blackouts.",
-        },
-        {
-          event: "Gideon visits Elliot in prison, begging him for help.",
-          date: "2015-06-12",
-          timeOfDay: "day",
-          dayOfWeek: "Thursday",
-          episodeId: 201,
-          notes:
-            "Allsafe has been shut down, with all employes furloughed. Mr. Robot tries to lay blame on himself and Elliot (though we know Angela is responsible). Gideon has not realized Elliot is his hacker, and is under FBI investigation. The day Elliot left - that has to be May 7th, when Elliot stole Gideon's token during the smart TV hack?",
+            "Not clear when he enters the state, but I assume it's the next day as the episode's part of Word Up! Wednesdays. We see Coney Island (where the Alderson family photo was taken) and the Washington Township plant. Alf! is here. Angela has 24 hours to learn the hack. Cisco is aware of (Tyrell? Irving?) involvement in modifying the femtocell.",
         },
         {
           event:
-            "Darlene struggles with her new leadership of fsociety while hosting a party at the smart house. She rallies fsociety before speaking with Mobley and giving him the Bank of E ransomware. Mobley returns to work and executes the hack.",
-          date: "2015-06-12",
-          timeOfDay: "night",
+            "Price harangues John Boehner. 8:40 AM Angela meets Cisco while getting the femtocell. Dom visits Ahmed again. 10:40 Darlene breaks into a hotel to assist Angela with the femtocell hack. 11:29 Angela executes the hack. Elliot is dragged from the infirmary to a private room, and speaks with Mr. Robot about Tyrell and the night of the hack.",
+          date: "2015-07-03",
+          timeOfDay: "morning",
           dayOfWeek: "Thursday",
-          episodeId: 201,
-          notes:
-            "iPad held up at the party is set to 9:05PM. Mobley is wearing the same clothes at the smart house and at Bank of E.",
-        },
-        {
-          event:
-            "Price, Knowles, and Jacobs discuss the ransomware. Price insists that if it even be done, it be done properly.",
-          date: "2015-06-13",
-          timeOfDay: "day",
-          dayOfWeek: "Friday",
-          episodeId: 201,
+          episodeId: 206,
         },
       ],
     });
