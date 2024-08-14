@@ -12,7 +12,6 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
     (a, b) => parseDate(a.date) - parseDate(b.date)
   );
 
-  console.log(chronologicalEvents);
   const episodeEventDates = new Set(
     chronologicalEvents.map((event) => event.date)
   );
