@@ -47,7 +47,6 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                 const eventSelected = selectedNotes.find(
                   (note) => note === event.id
                 );
-                console.log(event.future);
                 return (
                   <div className="first:mt-0 mt-2 last:mb-2" key={event.id}>
                     {event.flashback && (
