@@ -86,7 +86,7 @@ export default function Index() {
       return (
         <div>
           <div className="mt-2 w-full text-xl text-center lg:text-2xl">
-            <p className="w-full">EPISODE TODAY:</p>
+            <p className="w-full font-semibold text-red-500">EPISODE TODAY:</p>
             <p className="font-semibold w-full mt-2">{nextEpisode.title}</p>
           </div>
         </div>
