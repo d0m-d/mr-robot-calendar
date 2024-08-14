@@ -85,9 +85,9 @@ export default function Index() {
       if (!showConfetti) setShowConfetti(true);
       return (
         <div>
-          <div className="mt-2 w-full flex justify-center text-xl lg:text-2xl">
-            today is
-            <span className="font-semibold mx-2">{nextEpisode.title}</span>!!!
+          <div className="mt-2 w-full text-xl text-center lg:text-2xl">
+            <p className="w-full">EPISODE TODAY:</p>
+            <p className="font-semibold w-full mt-2">{nextEpisode.title}</p>
           </div>
         </div>
       );
