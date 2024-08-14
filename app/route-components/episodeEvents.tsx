@@ -29,7 +29,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
   return (
     <div className="flex justify-center">
       <div className="bg-slate-100/90 rounded-md w-11/12 px-4">
-        {episodeEventsByDate.map((eventDate, index) => {
+        {episodeEventsByDate.map((eventDate) => {
           return (
             <div
               key={eventDate.date}
@@ -47,8 +47,16 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                 const eventSelected = selectedNotes.find(
                   (note) => note === event.id
                 );
+                console.log(event.future);
                 return (
                   <div className="first:mt-0 mt-2 last:mb-2" key={event.id}>
+                    {event.flashback && (
+                      <p className="text-red-500 font-medium">FLASHBACK</p>
+                    )}
+
+                    {event.future && (
+                      <p className="text-red-500 font-medium">FUTURE</p>
+                    )}
                     <div className="lg:flex justify-center">
                       <span className="mr-2 uppercase w-1/12 font-medium">
                         {event.timeOfDay}
