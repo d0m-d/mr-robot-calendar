@@ -14,29 +14,30 @@ datasource db {
 }
 
 model Episode {
-  id          Int       @id
-  title       String
-  watchDate   String
-  startDate   String
-  endDate     String
-  events      Event[]
+  id              Int         @id
+  title           String
+  watchDate       String
+  startDate       String
+  endDate         String
+  events          Event[]
 }
 
 model DrinkingCue {
-  id        String    @id @default(uuid())
-  cue       String
-  type      String
-  notes     String?
+  id              String      @id @default(uuid())
+  cue             String
+  type            String
+  notes           String?
 }
 
 model Event {
-  id        String  @id @default(uuid())
-  event     String
-  notes     String?
-  date      String
-  dayOfWeek String
-  timeOfDay String
-  episode   Episode @relation(fields: [episodeId], references: [id])
-  episodeId Int
-  flashback Boolean?
+  id              String      @id @default(uuid())
+  event           String
+  notes           String?
+  date            String
+  dayOfWeek       String
+  timeOfDay       String
+  episode         Episode     @relation(fields: [episodeId], references: [id])
+  episodeId       Int
+  flashback       Boolean?
+  future          Boolean?
 }

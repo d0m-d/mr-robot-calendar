@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { formatDate } from "~/helpers/formatDate";
+import { parseDate } from "~/helpers/parseDate";
 import { EventType } from "~/helpers/types";
 
 type EventsPropsType = {
@@ -7,14 +8,19 @@ type EventsPropsType = {
 };
 
 export const EpisodeEvents = ({ events }: EventsPropsType) => {
+  const chronologicalEvents = events.sort(
+    (a, b) => parseDate(a.date) - parseDate(b.date)
+  );
+
+  console.log(chronologicalEvents);
   const episodeEventDates = new Set(
-    events
-      .sort((a, b) => parseInt(a.date) - parseInt(b.date))
-      .map((event) => event.date)
+    chronologicalEvents.map((event) => event.date)
   );
 
   const episodeEventsByDate = [...episodeEventDates].map((date) => {
-    const dateEvents = events.filter((event) => event.date === date);
+    const dateEvents = chronologicalEvents.filter(
+      (event) => event.date === date
+    );
     return {
       date,
       events: dateEvents,

@@ -16,4 +16,5 @@ export type EventType = {
   notes?: string | undefined | null;
   episodeId: number;
   flashback?: boolean | undefined | null;
+  future?: boolean | undefined | null;
 };
