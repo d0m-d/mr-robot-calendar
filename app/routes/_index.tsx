@@ -85,9 +85,9 @@ export default function Index() {
       if (!showConfetti) setShowConfetti(true);
       return (
         <div>
-          <div className="mt-2 w-full text-xl text-center lg:text-2xl">
-            <p className="w-full font-semibold text-red-500">EPISODE TODAY:</p>
-            <p className="font-semibold w-full mt-2">{nextEpisode.title}</p>
+          <div className="w-full text-xl text-center lg:text-2xl">
+            <p className="w-full font-bold text-red-500">EPISODE TODAY:</p>
+            <p className="font-semibold w-full">{nextEpisode.title}</p>
           </div>
         </div>
       );
@@ -97,7 +97,7 @@ export default function Index() {
     <div ref={containerRef}>
       <div className="flex justify-center mb-8">
         <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 mt-4 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
-          <h1 className="text-3xl md:text-5xl font-semibold mb-4 text-center">
+          <h1 className="text-3xl md:text-5xl font-semibold mb-2 text-center">
             Hello, friend
           </h1>
 
