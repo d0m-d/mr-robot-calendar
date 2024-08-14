@@ -3,6 +3,8 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { db } from "~/utils/db.server";
 import { months } from "~/helpers/enums";
 import { EpisodeType } from "~/helpers/types";
+import { useEffect, useRef, useState } from "react";
+import { generateConfetti } from "~/helpers/generateConfetti";
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,6 +24,13 @@ export default function Index() {
   const currentMonth = months.find((month) =>
     month.name.includes(currentDate.toString().split(" ")[1])
   );
+
+  const [showConfetti, setShowConfetti] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (showConfetti) generateConfetti(containerRef);
+  }, []);
 
   const getNextEpisode = () => {
     let nextEpisode: EpisodeType = data[0];
@@ -73,18 +82,19 @@ export default function Index() {
         </div>
       );
     } else {
+      if (!showConfetti) setShowConfetti(true);
       return (
         <div>
-          <div className="mt-2 flex justify-center text-xl">
-            Today's episode is
-            <span className="font-semibold mx-2">{nextEpisode.title}</span>
+          <div className="mt-2 w-full flex justify-center text-xl lg:text-2xl">
+            today is
+            <span className="font-semibold mx-2">{nextEpisode.title}</span>!!!
           </div>
         </div>
       );
     }
   };
   return (
-    <div>
+    <div ref={containerRef}>
       <div className="flex justify-center mb-8">
         <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 mt-4 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
           <h1 className="text-3xl md:text-5xl font-semibold mb-4 text-center">
