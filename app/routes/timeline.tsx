@@ -68,53 +68,55 @@ export default function Timeline() {
                   {formatDate(season[season.length - 1].endDate)}
                 </p>
               </div>
-              {season.map((episode) => (
-                <div key={episode.id}>
-                  <div
-                    className="flex justify-between lg:mx-16 p-2 text-lg"
-                    onClick={() => {
-                      if (
-                        !selectedEpisodes.find(
-                          (selectedEpisode) => selectedEpisode === episode.id
-                        )
-                      ) {
-                        setSelectedEpisodes([...selectedEpisodes, episode.id]);
-                      } else {
-                        const index = selectedEpisodes.indexOf(episode.id);
-                        selectedEpisodes.splice(index, 1);
-                        setSelectedEpisodes([...selectedEpisodes]);
-                      }
-                    }}
-                  >
-                    <p className="font-semibold w-1/12 lg:w-2/3">
-                      {episode.id}
-                    </p>
-                    <p className="hidden lg:flex w-2/3">{episode.title}</p>
-                    <div className="w-5/6 lg:w-1/3 text-end">
-                      <span>
-                        {formatDate(episode.startDate)}
-                        {episode.startDate !== episode.endDate && (
-                          <span>
-                            {" "}
-                            -{" "}
-                            {episode.startDate.split("-")[1] ===
-                            episode.endDate.split("-")[1]
-                              ? parseInt(episode.endDate.split("-")[2])
-                              : formatDate(episode.endDate)}
-                          </span>
-                        )}
-                      </span>
+              {season.map((episode) => {
+                const episodeSelected = selectedEpisodes.find(
+                  (selectedEpisode) => selectedEpisode === episode.id
+                );
+                return (
+                  <div key={episode.id}>
+                    <div
+                      className="flex justify-between lg:mx-16 p-2 text-lg"
+                      onClick={() => {
+                        if (!episodeSelected) {
+                          setSelectedEpisodes([
+                            ...selectedEpisodes,
+                            episode.id,
+                          ]);
+                        } else {
+                          const index = selectedEpisodes.indexOf(episode.id);
+                          selectedEpisodes.splice(index, 1);
+                          setSelectedEpisodes([...selectedEpisodes]);
+                        }
+                      }}
+                    >
+                      <p className="font-semibold w-1/12 lg:w-2/3">
+                        {episode.id}
+                      </p>
+                      <p className="hidden lg:flex w-2/3">{episode.title}</p>
+                      <div className="w-5/6 lg:w-1/3 text-end">
+                        <span>
+                          {formatDate(episode.startDate)}
+                          {episode.startDate !== episode.endDate && (
+                            <span>
+                              {" "}
+                              -{" "}
+                              {episode.startDate.split("-")[1] ===
+                              episode.endDate.split("-")[1]
+                                ? parseInt(episode.endDate.split("-")[2])
+                                : formatDate(episode.endDate)}
+                            </span>
+                          )}
+                        </span>
+                      </div>
                     </div>
+                    {episodeSelected && (
+                      <div key={episode.id}>
+                        <EpisodeEvents events={episode.events ?? []} />
+                      </div>
+                    )}
                   </div>
-                  {selectedEpisodes.find(
-                    (selectedEpisode) => selectedEpisode === episode.id
-                  ) && (
-                    <div key={episode.id}>
-                      <EpisodeEvents events={episode.events ?? []} />
-                    </div>
-                  )}
-                </div>
-              ))}
+                );
+              })}
             </div>
           ))}
         </div>
@@ -128,7 +130,6 @@ export default function Timeline() {
         >
           timeline
         </Link>
-        and notes
       </p>
     </div>
   );
