@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { formatDate } from "~/helpers/formatDate";
 import { parseDate } from "~/helpers/parseDate";
 import { EventType } from "~/helpers/types";
@@ -6,8 +6,20 @@ import { EventType } from "~/helpers/types";
 type EventsPropsType = {
   events: EventType[];
 };
-
+type timesOfDay = {
+  [key: string]: number;
+};
 export const EpisodeEvents = ({ events }: EventsPropsType) => {
+  const orderOfEvents: timesOfDay = {
+    "after midnight": 1,
+    "early morning": 2,
+    morning: 3,
+    day: 4,
+    afternoon: 5,
+    evening: 6,
+    night: 7,
+  };
+
   const chronologicalEvents = events.sort(
     (a, b) => parseDate(a.date) - parseDate(b.date)
   );
@@ -17,9 +29,12 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
   );
 
   const episodeEventsByDate = [...episodeEventDates].map((date) => {
-    const dateEvents = chronologicalEvents.filter(
-      (event) => event.date === date
-    );
+    const dateEvents = chronologicalEvents
+      .filter((event) => event.date === date)
+      .sort((a, b) => {
+        return orderOfEvents[a.timeOfDay] - orderOfEvents[b.timeOfDay];
+      });
+
     return {
       date,
       events: dateEvents,
