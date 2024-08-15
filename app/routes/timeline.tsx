@@ -41,7 +41,7 @@ export default function Timeline() {
       }
     });
   const seasons = [season1, season2, season3, season4];
-  const [selectedEpisode, setSelectedEpisode] = useState<number>(0);
+  const [selectedEpisodes, setSelectedEpisodes] = useState<number[]>([]);
   return (
     <div>
       <Link to="/">
@@ -69,11 +69,23 @@ export default function Timeline() {
                 </p>
               </div>
               {season.map((episode) => (
-                <div
-                  onClick={() => setSelectedEpisode(episode.id)}
-                  key={episode.id}
-                >
-                  <div className="flex justify-between lg:mx-16 p-2 text-lg">
+                <div key={episode.id}>
+                  <div
+                    className="flex justify-between lg:mx-16 p-2 text-lg"
+                    onClick={() => {
+                      if (
+                        !selectedEpisodes.find(
+                          (selectedEpisode) => selectedEpisode === episode.id
+                        )
+                      ) {
+                        setSelectedEpisodes([...selectedEpisodes, episode.id]);
+                      } else {
+                        const index = selectedEpisodes.indexOf(episode.id);
+                        selectedEpisodes.splice(index, 1);
+                        setSelectedEpisodes([...selectedEpisodes]);
+                      }
+                    }}
+                  >
                     <p className="font-semibold w-1/12 lg:w-2/3">
                       {episode.id}
                     </p>
@@ -94,7 +106,9 @@ export default function Timeline() {
                       </span>
                     </div>
                   </div>
-                  {selectedEpisode === episode.id && (
+                  {selectedEpisodes.find(
+                    (selectedEpisode) => selectedEpisode === episode.id
+                  ) && (
                     <div key={episode.id}>
                       <EpisodeEvents events={episode.events ?? []} />
                     </div>

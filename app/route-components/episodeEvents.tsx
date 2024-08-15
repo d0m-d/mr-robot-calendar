@@ -10,6 +10,8 @@ type timesOfDay = {
   [key: string]: number;
 };
 export const EpisodeEvents = ({ events }: EventsPropsType) => {
+  const [selectedNotes, setSelectedNotes] = useState<string[]>([]);
+
   const orderOfEvents: timesOfDay = {
     "after midnight": 1,
     "early morning": 2,
@@ -40,7 +42,6 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
       events: dateEvents,
     };
   });
-  const [selectedNotes, setSelectedNotes] = useState<string[]>([]);
   return (
     <div className="flex justify-center">
       <div className="bg-slate-100/90 rounded-md w-11/12 px-4">
