@@ -44,7 +44,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
   });
   return (
     <div className="flex justify-center">
-      <div className="bg-slate-100/90 rounded-md w-11/12 px-4">
+      <div className="bg-slate-100/90 rounded-md lg:w-11/12 px-4">
         {episodeEventsByDate.map((eventDate) => {
           return (
             <div
@@ -99,7 +99,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                     </div>
 
                     {eventSelected && event.notes && (
-                      <div className="m-2 border-2 rounded-md border-cyan-200 p-2 w-11/12 lg:w-1/2 mx-auto">
+                      <div className="m-2 border-2 rounded-md border-cyan-200 p-2 lg:w-2/3 mx-auto">
                         <p className="lg:text-center">{event.notes}</p>
                       </div>
                     )}
