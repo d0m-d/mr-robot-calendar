@@ -3,14 +3,12 @@ import { PrismaClient } from "@prisma/client";
 async function seed() {
   const prisma = new PrismaClient();
   try {
-    await prisma.event.create({
+    await prisma.episode.update({
+      where: {
+        id: 303,
+      },
       data: {
-        event:
-          "Whiterose's men kill the FBI agents sent for Zhang, as she proclaims there is only Whiterose now.",
-        episodeId: 411,
-        timeOfDay: "after midnight",
-        dayOfWeek: "Friday",
-        date: "2015-12-26",
+        watchDate: "September 20",
       },
     });
   } catch (e) {
