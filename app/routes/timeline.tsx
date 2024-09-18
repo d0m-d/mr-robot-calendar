@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
+import { months } from "~/helpers/enums";
 import { formatDate } from "~/helpers/formatDate";
 import { EpisodeType } from "~/helpers/types";
 import { EpisodeEvents } from "~/route-components/episodeEvents";
@@ -42,6 +43,36 @@ export default function Timeline() {
     });
   const seasons = [season1, season2, season3, season4];
   const [selectedEpisodes, setSelectedEpisodes] = useState<number[]>([]);
+  const currentDate = new Date();
+  const currentMonth = months.find((month) =>
+    month.name.includes(currentDate.toString().split(" ")[1])
+  );
+
+  let nextEpisode = data[0];
+  const episodesThisMonth = data
+    .filter((episode) => {
+      if (currentMonth && episode.watchDate.includes(currentMonth?.name)) {
+        if (parseInt(episode.watchDate.split(" ")[1]) >= currentDate.getDate())
+          return episode;
+      }
+    })
+    .sort((a, b) => a.id - b.id);
+  if (episodesThisMonth.length > 0) {
+    nextEpisode = episodesThisMonth[0];
+  } else {
+    const futureEpisodes = data
+      .filter((episode) => {
+        const episodeMonth = months.find((month) =>
+          episode.watchDate.includes(month.name)
+        );
+        if (episodeMonth && currentMonth) {
+          if (episodeMonth.number > currentMonth.number) return episode;
+        }
+      })
+      .sort((a, b) => a.id - b.id);
+    nextEpisode = futureEpisodes[0];
+  }
+
   return (
     <div>
       <Link to="/">
@@ -75,7 +106,11 @@ export default function Timeline() {
                 return (
                   <div key={episode.id}>
                     <div
-                      className="flex justify-between lg:mx-16 p-2 text-lg"
+                      id={episode.id.toString()}
+                      className={`flex justify-between lg:mx-16 p-2 text-lg ${
+                        nextEpisode.id === episode.id &&
+                        "bg-red-700/50 rounded-md"
+                      }`}
                       onClick={() => {
                         if (!episodeSelected) {
                           setSelectedEpisodes([
