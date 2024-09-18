@@ -35,12 +35,16 @@ export default function Index() {
   const getNextEpisode = () => {
     let nextEpisode: EpisodeType = data[0];
     let daysTilNextEpisode;
-    const episodesThisMonth = data.filter((episode) => {
-      if (currentMonth && episode.watchDate.includes(currentMonth?.name)) {
-        if (parseInt(episode.watchDate.split(" ")[1]) >= currentDate.getDate())
-          return episode;
-      }
-    });
+    const episodesThisMonth = data
+      .filter((episode) => {
+        if (currentMonth && episode.watchDate.includes(currentMonth?.name)) {
+          if (
+            parseInt(episode.watchDate.split(" ")[1]) >= currentDate.getDate()
+          )
+            return episode;
+        }
+      })
+      .sort((a, b) => a.id - b.id);
     if (episodesThisMonth.length > 0) {
       nextEpisode = episodesThisMonth[0];
       daysTilNextEpisode =

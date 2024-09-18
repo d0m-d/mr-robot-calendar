@@ -3,12 +3,10 @@ import { PrismaClient } from "@prisma/client";
 async function seed() {
   const prisma = new PrismaClient();
   try {
-    await prisma.episode.update({
-      where: {
-        id: 303,
-      },
+    await prisma.drinkingCue.create({
       data: {
-        watchDate: "September 20",
+        cue: "window",
+        type: "word",
       },
     });
   } catch (e) {
