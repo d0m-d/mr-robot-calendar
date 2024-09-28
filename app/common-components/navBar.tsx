@@ -32,10 +32,10 @@ export const NavBar = () => {
           menu
         </button>
         {openMobileNav && (
-          <div className="bg-gray-700 rounded-md mt-2">
-            <ul className="flex flex-col items-center justify-between min-h-[250px]">
+          <div className="bg-gray-100/85 rounded-md mt-2">
+            <ul className="flex flex-col items-center justify-between">
               {links.map((link, index) => (
-                <li className="font-medium lowercase my-8" key={index}>
+                <li className="font-semibold lowercase my-8" key={index}>
                   <a href={link.route}>{link.name}</a>
                 </li>
               ))}
@@ -44,9 +44,9 @@ export const NavBar = () => {
         )}
       </div>
       <div className="lg:flex justify-between hidden bg-gradient-to-r from-cyan-100 to-white px-8 py-2 mb-4">
-        {links.map((link) => {
+        {links.map((link, index) => {
           return (
-            <Link to={link.route}>
+            <Link to={link.route} key={index}>
               <button className="text-red-500 lowercase font-semibold text-lg">
                 {link.name}
               </button>
