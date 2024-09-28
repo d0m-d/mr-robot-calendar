@@ -81,7 +81,7 @@ export default function Timeline() {
         </button>
       </Link>
       <div className="flex justify-center">
-        <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 lg:w-3/4 mt-4 pb-8 rounded-md">
+        <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 lg:w-3/4 pb-8 rounded-md">
           <h1 className="text-center text-3xl lg:text-4xl font-semibold mb-2">
             Timeline of Episodes
           </h1>
