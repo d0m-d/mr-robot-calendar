@@ -44,35 +44,42 @@ export default function Timeline() {
   const seasons = [season1, season2, season3, season4];
   const [selectedEpisodes, setSelectedEpisodes] = useState<number[]>([]);
   const currentDate = new Date();
+  const currentDay = currentDate.toString().split(" ")[2];
   const currentMonth = months.find((month) =>
     month.name.includes(currentDate.toString().split(" ")[1])
   );
 
-  let nextEpisode = data[0];
-  const episodesThisMonth = data
-    .filter((episode) => {
-      if (currentMonth && episode.watchDate.includes(currentMonth?.name)) {
-        if (parseInt(episode.watchDate.split(" ")[1]) >= currentDate.getDate())
-          return episode;
-      }
-    })
-    .sort((a, b) => a.id - b.id);
-  if (episodesThisMonth.length > 0) {
-    nextEpisode = episodesThisMonth[0];
-  } else {
+  const findNextEpisodes = () => {
+    const nextEpisodes = [];
     const futureEpisodes = data
       .filter((episode) => {
         const episodeMonth = months.find((month) =>
           episode.watchDate.includes(month.name)
         );
+        const episodeDay = episode.watchDate.split(" ")[1];
         if (episodeMonth && currentMonth) {
-          if (episodeMonth.number > currentMonth.number) return episode;
+          if (
+            episodeMonth.number === currentMonth.number &&
+            parseInt(episodeDay) >= parseInt(currentDay)
+          ) {
+            return episode;
+          } else if (episodeMonth.number > currentMonth.number) {
+            return episode;
+          }
         }
       })
       .sort((a, b) => a.id - b.id);
-    nextEpisode = futureEpisodes[0];
-  }
+    for (let i = 0; i < 6; i++) {
+      if (
+        futureEpisodes[i].watchDate === futureEpisodes[i + 1].watchDate ||
+        futureEpisodes[i].watchDate === futureEpisodes[i - 1].watchDate
+      )
+        nextEpisodes.push(futureEpisodes[i]);
+    }
+    return nextEpisodes;
+  };
 
+  const nextEpisodes = findNextEpisodes();
   return (
     <div>
       <Link to="/">
@@ -103,13 +110,15 @@ export default function Timeline() {
                 const episodeSelected = selectedEpisodes.find(
                   (selectedEpisode) => selectedEpisode === episode.id
                 );
+                const isNextEpisode = nextEpisodes
+                  .map((ep) => ep.id)
+                  .includes(episode.id);
                 return (
                   <div key={episode.id}>
                     <div
                       id={episode.id.toString()}
                       className={`flex justify-between lg:mx-16 p-2 text-lg ${
-                        nextEpisode.id === episode.id &&
-                        "bg-red-700/50 rounded-md"
+                        isNextEpisode && "bg-red-500/40 rounded-md"
                       }`}
                       onClick={() => {
                         if (!episodeSelected) {
