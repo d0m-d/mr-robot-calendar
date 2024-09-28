@@ -26,7 +26,7 @@ export const NavBar = () => {
     <div>
       <div className="block lg:hidden m-4">
         <button
-          className="flex items-center px-3 py-2 border-2 bg-gradient-to-r from-cyan-800 to-white rounded text-red-500 border-red-500 font-bold text-xl mx-2.5"
+          className="flex items-center px-3 py-2 border-2 bg-gradient-to-r from-cyan-100 to-white rounded text-red-500 border-red-500 font-bold text-xl mx-2.5"
           onClick={() => setOpenMobileNav(!openMobileNav)}
         >
           menu
