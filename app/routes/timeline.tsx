@@ -47,13 +47,8 @@ export default function Timeline() {
 
   return (
     <div>
-      <Link to="/">
-        <button className="m-4 p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
-          Back to Calendar
-        </button>
-      </Link>
-      <div className="flex justify-center">
-        <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 lg:w-3/4 pb-8 rounded-md">
+      <div className="flex justify-center mt-4">
+        <div className="font-sans p-4 bg-gray-100/85 border-2 border-red-500 w-11/12 lg:w-3/4 pb-8 rounded-md">
           <h1 className="text-center text-3xl lg:text-4xl font-semibold mb-2">
             Timeline of Episodes
           </h1>

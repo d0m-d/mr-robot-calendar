@@ -2,10 +2,10 @@ import type { MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { db } from "~/utils/db.server";
 import { months } from "~/helpers/enums";
-import { EpisodeType } from "~/helpers/types";
 import { useEffect, useRef, useState } from "react";
 import { generateConfetti } from "~/helpers/generateConfetti";
 import { findNextEpisodes } from "~/helpers/getNextEpisodes";
+import { NavBar } from "~/common-components/navBar";
 
 export const meta: MetaFunction = () => {
   return [
@@ -44,14 +44,16 @@ export default function Index() {
       daysTilNextEpisode = parseInt(episodeDay) - currentDate.getDate();
     } else {
       if (currentMonth && episodeMonth) {
+        let monthDays = 0;
         for (
           let i = currentMonth.number - 1;
           i < episodeMonth.number - 1;
           i++
         ) {
-          daysTilNextEpisode =
-            parseInt(episodeDay) - currentDate.getDate() + months[i].days;
+          monthDays = monthDays + months[i].days;
         }
+        daysTilNextEpisode =
+          parseInt(episodeDay) - currentDate.getDate() + monthDays;
       }
     }
     if (daysTilNextEpisode && daysTilNextEpisode >= 1) {
@@ -106,7 +108,7 @@ export default function Index() {
   return (
     <div ref={containerRef}>
       <div className="flex justify-center mb-8">
-        <div className="font-sans p-4 bg-gray-100/85 border-4 border-red-500 w-11/12 mt-4 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
+        <div className="font-sans p-4 bg-gray-100/85 border-2 border-red-500 w-11/12 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
           <h1 className="text-3xl md:text-5xl font-semibold mb-2 text-center">
             Hello, friend
           </h1>
@@ -118,18 +120,6 @@ export default function Index() {
               scrolling="no"
               className="h-[500px] w-[800px] lg:h-[800px] lg:w-[1200px] rounded-md"
             ></iframe>
-          </div>
-          <div className="flex justify-between">
-            <Link to="/timeline">
-              <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white mx-2">
-                full series timeline
-              </button>
-            </Link>
-            <Link to="/drinkingCues">
-              <button className="p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white mx-2">
-                drinking game cues
-              </button>
-            </Link>
           </div>
         </div>
       </div>

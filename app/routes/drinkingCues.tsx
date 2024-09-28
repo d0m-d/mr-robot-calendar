@@ -14,13 +14,8 @@ export default function DrinkingCues() {
   const actionCues = data.filter((cue) => cue.type === "action");
   return (
     <div>
-      <Link to="/">
-        <button className="m-4 p-2 border-2 rounded-md border-red-500 text-red-500 text-xl font-medium bg-gradient-to-r from-cyan-100 to-white">
-          Back to Calendar
-        </button>
-      </Link>
       <div className="flex justify-center mb-8">
-        <div className="bg-gray-100/90 w-11/12 lg:w-3/4 border-4 border-red-500 rounded-md lg:mt-8 p-4 lg:pb-8">
+        <div className="bg-gray-100/90 w-11/12 lg:w-3/4 border-2 border-red-500 rounded-md lg:mt-8 p-4 lg:pb-8">
           <h1 className="lg:text-4xl text-3xl font-semibold mb-8 text-center">
             Drinking Game Cues
           </h1>
