@@ -5,6 +5,7 @@ import { months } from "~/helpers/enums";
 import { EpisodeType } from "~/helpers/types";
 import { useEffect, useRef, useState } from "react";
 import { generateConfetti } from "~/helpers/generateConfetti";
+import { findNextEpisodes } from "~/helpers/getNextEpisodes";
 
 export const meta: MetaFunction = () => {
   return [
@@ -32,38 +33,25 @@ export default function Index() {
     if (showConfetti) generateConfetti(containerRef);
   }, []);
 
-  const getNextEpisode = () => {
-    let nextEpisode: EpisodeType = data[0];
+  const getEpisodeCountdown = () => {
+    let nextEpisodes = findNextEpisodes(data);
     let daysTilNextEpisode;
-    const episodesThisMonth = data
-      .filter((episode) => {
-        if (currentMonth && episode.watchDate.includes(currentMonth?.name)) {
-          if (
-            parseInt(episode.watchDate.split(" ")[1]) >= currentDate.getDate()
-          )
-            return episode;
-        }
-      })
-      .sort((a, b) => a.id - b.id);
-    if (episodesThisMonth.length > 0) {
-      nextEpisode = episodesThisMonth[0];
-      daysTilNextEpisode =
-        parseInt(nextEpisode.watchDate.split(" ")[1]) - currentDate.getDate();
+    const episodeMonth = months.find((month) =>
+      nextEpisodes[0].watchDate.includes(month.name)
+    );
+    const episodeDay = nextEpisodes[0].watchDate.split(" ")[1];
+    if (episodeMonth?.number === currentMonth?.number) {
+      daysTilNextEpisode = parseInt(episodeDay) - currentDate.getDate();
     } else {
-      const futureEpisodes = data.filter((episode) => {
-        const episodeMonth = months.find((month) =>
-          episode.watchDate.includes(month.name)
-        );
-        if (episodeMonth && currentMonth) {
-          if (episodeMonth.number > currentMonth.number) return episode;
+      if (currentMonth && episodeMonth) {
+        for (
+          let i = currentMonth.number - 1;
+          i < episodeMonth.number - 1;
+          i++
+        ) {
+          daysTilNextEpisode =
+            parseInt(episodeDay) - currentDate.getDate() + months[i].days;
         }
-      });
-      nextEpisode = futureEpisodes[0];
-      if (currentMonth) {
-        daysTilNextEpisode =
-          currentMonth?.days -
-          currentDate.getDate() +
-          parseInt(nextEpisode.watchDate.split(" ")[1]);
       }
     }
     if (daysTilNextEpisode && daysTilNextEpisode >= 1) {
@@ -79,9 +67,19 @@ export default function Index() {
             </span>
           </div>
           <div className="mt-2 hidden lg:flex justify-center text-xl">
-            the next episode is
-            <span className="font-semibold mx-2">{nextEpisode.title}</span> on
-            <span className="font-semibold mx-2">{nextEpisode.watchDate}</span>
+            the next episode{nextEpisodes.length > 1 && "s"}{" "}
+            {nextEpisodes.length > 1 ? "are" : "is"}
+            <span className="font-semibold mx-2">
+              {nextEpisodes.map((nextEp, index) => (
+                <p className="text-left" key={index}>
+                  {nextEp.title}
+                </p>
+              ))}
+            </span>{" "}
+            on
+            <span className="font-semibold mx-2">
+              {nextEpisodes[0].watchDate}
+            </span>
           </div>
         </div>
       );
@@ -90,8 +88,16 @@ export default function Index() {
       return (
         <div>
           <div className="w-full text-xl text-center lg:text-2xl">
-            <p className="w-full font-bold text-red-500">EPISODE TODAY:</p>
-            <p className="font-semibold w-full">{nextEpisode.title}</p>
+            <p className="w-full font-bold text-red-500">
+              EPISODE{nextEpisodes.length > 1 && "S"} TODAY:
+            </p>
+            <p className="font-semibold w-full">
+              {nextEpisodes.map((nextEp, index) => (
+                <p className="text-center" key={index}>
+                  {nextEp.title}
+                </p>
+              ))}
+            </p>
           </div>
         </div>
       );
@@ -105,7 +111,7 @@ export default function Index() {
             Hello, friend
           </h1>
 
-          <div className="text-center">{getNextEpisode()}</div>
+          <div className="text-center">{getEpisodeCountdown()}</div>
           <div className="flex justify-center my-8">
             <iframe
               src="https://calendar.google.com/calendar/embed?height=800&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&showPrint=0&title=Mr%20Robot%20Watch%20Dates&showCalendars=0&src=bXJyb2JvdGNhbGVuZGFyQGdtYWlsLmNvbQ&color=%23D50000"
