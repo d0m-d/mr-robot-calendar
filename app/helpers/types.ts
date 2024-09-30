@@ -18,3 +18,9 @@ export type EventType = {
   flashback?: boolean | undefined | null;
   future?: boolean | undefined | null;
 };
+
+export type ScreeningQuestionType = {
+  id: string;
+  question: string;
+  answer: string;
+};

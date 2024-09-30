@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { db } from "~/utils/db.server";
 import { months } from "~/helpers/enums";
 import { useEffect, useRef, useState } from "react";
