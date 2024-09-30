@@ -25,11 +25,9 @@ export const findNextEpisodes = (data: EpisodeType[]) => {
       }
     })
     .sort((a, b) => a.id - b.id);
-  for (let i = 0; i < 6; i++) {
-    if (
-      futureEpisodes[i].watchDate === futureEpisodes[i + 1].watchDate ||
-      futureEpisodes[i].watchDate === futureEpisodes[i - 1].watchDate
-    )
+  nextEpisodes.push(futureEpisodes[0]);
+  for (let i = 1; i < futureEpisodes.length; i++) {
+    if (futureEpisodes[i].watchDate === nextEpisodes[0].watchDate)
       nextEpisodes.push(futureEpisodes[i]);
   }
   return nextEpisodes;
