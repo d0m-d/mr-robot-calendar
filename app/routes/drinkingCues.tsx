@@ -15,16 +15,10 @@ export default function DrinkingCues() {
   return (
     <div>
       <div className="flex justify-center mb-8">
-        <div className="bg-gray-100/90 w-11/12 lg:w-3/4 border-2 border-red-500 rounded-md lg:mt-8 p-4 lg:pb-8">
+        <div className="bg-gray-100/95 w-11/12 lg:w-3/4 border-2 border-red-500 rounded-md lg:mt-8 p-4 lg:pb-8">
           <h1 className="lg:text-4xl text-3xl font-semibold text-center mb-2">
             Drinking Game Cues
           </h1>
-          {/* <div className="flex justify-center mb-4">
-            <button className="p-2 border-2 rounded-md border-red-500 bg-gradient-to-r from-cyan-100 to-white text-red-500 font-medium">
-              Add new drinking cue
-            </button>
-          </div> */}
-
           <div className="mx-4 lg:flex lg:justify-between">
             <div className="mt-8 lg:mt-0">
               <h2 className="text-xl font-semibold mb-4">Word cues</h2>
