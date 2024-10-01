@@ -24,7 +24,7 @@ export default function DrinkingCues() {
               <h2 className="text-xl font-semibold mb-4">Word cues</h2>
 
               {wordCues.map((cue) => (
-                <p className="mt-2 text-lg" key={cue.id}>
+                <p className="mt-2 text-lg font-medium" key={cue.id}>
                   • "{cue.cue}"
                 </p>
               ))}
@@ -33,7 +33,7 @@ export default function DrinkingCues() {
               <h2 className="text-xl font-semibold mb-4">Character cues</h2>
 
               {characterCues.map((cue) => (
-                <p className="mt-2 text-lg" key={cue.id}>
+                <p className="mt-2 text-lg font-medium" key={cue.id}>
                   • {cue.cue}
                 </p>
               ))}
@@ -42,7 +42,7 @@ export default function DrinkingCues() {
               <h2 className="text-xl font-semibold mb-4">Action cues</h2>
               {actionCues.map((cue) => (
                 <div>
-                  <p className="mt-2 text-lg" key={cue.id}>
+                  <p className="mt-2 text-lg font-medium" key={cue.id}>
                     • {cue.cue}
                   </p>
                   {cue.notes && (
