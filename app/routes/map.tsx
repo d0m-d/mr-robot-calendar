@@ -3,7 +3,7 @@ export default function Map() {
     <div>
       <div className="flex justify-center mb-8">
         <div className="font-sans p-4 bg-gray-100/85 border-2 border-red-500 w-11/12 mt-4 lg:w-3/4 lg:mt-16 pb-16 rounded-md">
-          <h1 className="text-3xl lg:text-4xl text-center mb-8 font-medium">
+          <h1 className="text-3xl lg:text-4xl text-center mb-4 lg:mb-8 font-semibold">
             Filming Locations
           </h1>
           <div className="flex justify-center">
