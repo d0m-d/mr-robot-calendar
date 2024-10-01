@@ -37,10 +37,10 @@ export default function Index() {
     } else return <p className="ml-2 mt-2 text-red-500">x</p>;
   };
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog">
-      <div className="relative px-4 min-h-screen md:flex md:items-center md:justify-center">
-        <div className="bg-white rounded-lg md:max-w-fit md:mx-auto p-8 inset-x-0 top-32 fixed lg:top-0 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
-          <h1 className="text-center text-3xl font-medium mb-2 hidden lg:block">
+    <div className="flex items-center justify-center confirm-dialog">
+      <div className="px-4 min-h-screen md:flex md:items-center md:justify-center">
+        <div className="bg-white rounded-lg p-8 mx-4 md:mb-48 shadow-lg border-4 border-red-500">
+          <h1 className="text-center text-3xl font-medium mb-2">
             Hello, friend
           </h1>
           <h2 className="text-center text-2xl mb-4">
@@ -66,18 +66,21 @@ export default function Index() {
               </div>
             );
           })}
-          <div className="flex justify-center mt-8">
-            <button
-              className={`p-2 text-xl border-2 rounded-md font-medium ${
-                enterSiteEnabled
-                  ? "border-red-500 text-red-500 bg-gradient-to-r from-cyan-100"
-                  : "text-gray-500 border-gray-500"
-              }`}
-              disabled={!enterSiteEnabled}
-            >
-              <Link to="/calendar">Enter Site</Link>
-            </button>
-          </div>
+          {enterSiteEnabled && (
+            <div className="flex justify-center mt-8">
+              <Link to="/calendar">
+                <button
+                  className={`p-2 text-xl border-2 rounded-md font-medium ${
+                    enterSiteEnabled
+                      ? "border-red-500 text-red-500 bg-gradient-to-r from-cyan-100"
+                      : "text-gray-500 border-gray-500"
+                  }`}
+                >
+                  Enter Site
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
