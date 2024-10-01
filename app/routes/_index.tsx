@@ -39,7 +39,7 @@ export default function Index() {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog top-32 md:top-0">
       <div className="px-4 min-h-screen md:flex md:items-center md:justify-center">
-        <div className="bg-white rounded-lg md:max-w-fit md:mx-auto p-4 fixed inset-x-0 md:bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
+        <div className="bg-white rounded-lg md:max-w-fit md:mx-auto p-4 lg:p-8 fixed inset-x-0 md:bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
           <h1 className="text-center text-3xl font-medium mb-2">
             Hello, friend
           </h1>
@@ -68,21 +68,20 @@ export default function Index() {
               </div>
             );
           })}
-          {enterSiteEnabled && (
-            <div className="flex justify-center mt-8">
-              <Link to="/calendar">
-                <button
-                  className={`p-2 text-xl border-2 rounded-md font-medium ${
-                    enterSiteEnabled
-                      ? "border-red-500 text-red-500 bg-gradient-to-r from-cyan-100"
-                      : "text-gray-500 border-gray-500"
-                  }`}
-                >
-                  Enter Site
-                </button>
-              </Link>
-            </div>
-          )}
+          <div className="flex justify-center mt-8">
+            <Link to="/calendar">
+              <button
+                disabled={!enterSiteEnabled}
+                className={`p-2 text-xl border-2 rounded-md font-medium ${
+                  enterSiteEnabled
+                    ? "border-red-500 text-red-500 bg-gradient-to-r from-cyan-100"
+                    : "text-gray-500 border-gray-500"
+                }`}
+              >
+                Enter Site
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
