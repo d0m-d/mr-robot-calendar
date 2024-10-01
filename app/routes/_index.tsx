@@ -37,7 +37,7 @@ export default function Index() {
     } else return <p className="ml-2 mt-2 text-red-500">x</p>;
   };
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog top-48 md:top-0">
+    <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog top-32 md:top-0">
       <div className="px-4 min-h-screen md:flex md:items-center md:justify-center">
         <div className="bg-white rounded-lg md:max-w-fit md:mx-auto p-4 fixed inset-x-0 md:bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
           <h1 className="text-center text-3xl font-medium mb-2">
