@@ -27,8 +27,6 @@ model DrinkingCue {
   cue             String
   type            String
   notes           String?
-  user            User? @relation(fields: [user_id], references: [id])
-  user_id         String?
 }
 
 model Event {
@@ -42,13 +40,6 @@ model Event {
   episodeId       Int
   flashback       Boolean?
   future          Boolean?
-}
-
-model User {
-  id              String @id @default(uuid())
-  username        String   @unique
-  passwordHash    String
-  drinkingCues    DrinkingCue[]
 }
 
 model ScreeningQuestions {

@@ -5,10 +5,10 @@ async function seed() {
   try {
     await prisma.drinkingCue.update({
       where: {
-        id: "de5cf3a2-d30d-4cb0-9fad-2041ea42f8c8",
+        id: "5b7cc13a-e09d-450b-9a5e-be7da9ab84fd",
       },
       data: {
-        notes: null,
+        cue: "God/Deus",
       },
     });
   } catch (e) {
