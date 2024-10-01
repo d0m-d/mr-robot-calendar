@@ -39,8 +39,8 @@ export default function Index() {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog">
       <div className="relative px-4 min-h-screen md:flex md:items-center md:justify-center">
-        <div className="bg-white rounded-lg md:max-w-fit md:mx-auto p-16 fixed inset-x-0 bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
-          <h1 className="text-3xl lg:text-4xl text-center mb-4 font-medium">
+        <div className="bg-white rounded-lg md:max-w-fit md:mx-auto p-8 fixed inset-x-0 top-32 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
+          <h1 className="text-center text-3xl font-medium mb-2">
             Hello, friend
           </h1>
           <h2 className="text-center text-2xl mb-4">
