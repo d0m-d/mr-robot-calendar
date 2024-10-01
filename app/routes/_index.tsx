@@ -51,7 +51,9 @@ export default function Index() {
             return (
               <div className="flex justify-center" key={question.id}>
                 <div className="flex-col">
-                  <p className="text-xl mt-2">{question.question}</p>
+                  <p className="text-xl mt-2 text-center">
+                    {question.question}
+                  </p>
                   <div className="flex justify-center">
                     <input
                       placeholder="enter answer here"
