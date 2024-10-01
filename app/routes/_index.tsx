@@ -1,11 +1,7 @@
-import type { MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, MetaFunction, useLoaderData } from "@remix-run/react";
+import { useState } from "react";
+import { ScreeningQuestionType } from "~/helpers/types";
 import { db } from "~/utils/db.server";
-import { months } from "~/helpers/enums";
-import { useEffect, useRef, useState } from "react";
-import { generateConfetti } from "~/helpers/generateConfetti";
-import { findNextEpisodes } from "~/helpers/getNextEpisodes";
-import { NavBar } from "~/common-components/navBar";
 
 export const meta: MetaFunction = () => {
   return [
@@ -13,113 +9,74 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Mr. Robot Episode Calendar" },
   ];
 };
+
 export const loader = async () => {
-  const data = await db.episode.findMany();
+  const data = await db.screeningQuestions.findMany();
   return data;
 };
 type LoaderType = Awaited<ReturnType<typeof loader>>;
 
 export default function Index() {
   const data = useLoaderData<LoaderType>();
-  const currentDate = new Date();
-  const currentMonth = months.find((month) =>
-    month.name.includes(currentDate.toString().split(" ")[1])
-  );
+  let correctAnswers = 0;
+  const [enterSiteEnabled, setEnterSiteEnabled] = useState(false);
 
-  const [showConfetti, setShowConfetti] = useState(false);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    if (showConfetti) generateConfetti(containerRef);
-  }, []);
-
-  const getEpisodeCountdown = () => {
-    let nextEpisodes = findNextEpisodes(data);
-    let daysTilNextEpisode;
-    const episodeMonth = months.find((month) =>
-      nextEpisodes[0].watchDate.includes(month.name)
-    );
-    const episodeDay = nextEpisodes[0].watchDate.split(" ")[1];
-    if (episodeMonth?.number === currentMonth?.number) {
-      daysTilNextEpisode = parseInt(episodeDay) - currentDate.getDate();
-    } else {
-      if (currentMonth && episodeMonth) {
-        let monthDays = 0;
-        for (
-          let i = currentMonth.number - 1;
-          i < episodeMonth.number - 1;
-          i++
-        ) {
-          monthDays = monthDays + months[i].days;
-        }
-        daysTilNextEpisode =
-          parseInt(episodeDay) - currentDate.getDate() + monthDays;
-      }
-    }
-    if (daysTilNextEpisode && daysTilNextEpisode >= 1) {
-      return (
-        <div>
-          <div className="flex justify-center text-2xl md:text-3xl">
-            <span className="font-bold text-red-500 mr-2 border-2 px-2 rounded-md border-red-500">
-              {daysTilNextEpisode}
-            </span>
-            <span>
-              day{daysTilNextEpisode && daysTilNextEpisode > 1 && "s"} until
-              next episode!
-            </span>
-          </div>
-          <div className="mt-2 hidden lg:flex justify-center text-xl">
-            the next episode{nextEpisodes.length > 1 && "s"}{" "}
-            {nextEpisodes.length > 1 ? "are" : "is"}
-            <span className="font-semibold mx-2">
-              {nextEpisodes.map((nextEp, index) => (
-                <p className="text-left" key={index}>
-                  {nextEp.title}
-                </p>
-              ))}
-            </span>{" "}
-            on
-            <span className="font-semibold mx-2">
-              {nextEpisodes[0].watchDate}
-            </span>
-          </div>
-        </div>
-      );
-    } else {
-      if (!showConfetti) setShowConfetti(true);
-      return (
-        <div>
-          <div className="w-full text-xl text-center lg:text-2xl">
-            <p className="w-full font-bold text-red-500">
-              EPISODE{nextEpisodes.length > 1 && "S"} TODAY:
-            </p>
-            <p className="font-semibold w-full">
-              {nextEpisodes.map((nextEp, index) => (
-                <p className="text-center" key={index}>
-                  {nextEp.title}
-                </p>
-              ))}
-            </p>
-          </div>
-        </div>
-      );
-    }
+  const enableButton = () => {
+    if (correctAnswers === data.length) setEnterSiteEnabled(true);
+  };
+  const checkAnswer = (
+    question: ScreeningQuestionType,
+    answerInput: string
+  ) => {
+    if (
+      answerInput.toLowerCase().replace(/[^a-zA-Z ]/g, "") ===
+      question.answer.toLowerCase()
+    ) {
+      correctAnswers++;
+      return <p className="ml-2 mt-2 font-bold text-green-500">✓</p>;
+    } else return <p className="ml-2 mt-2 text-red-500">x</p>;
   };
   return (
-    <div ref={containerRef}>
-      <div className="flex justify-center mb-8">
-        <div className="font-sans p-4 bg-gray-100/85 border-2 border-red-500 w-11/12 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
-          <h1 className="text-3xl md:text-5xl font-semibold mb-2 text-center">
+    <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog">
+      <div className="relative px-4 min-h-screen md:flex md:items-center md:justify-center">
+        <div className="bg-white rounded-lg md:max-w-fit md:mx-auto p-16 fixed inset-x-0 bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
+          <h1 className="text-3xl lg:text-4xl text-center mb-4 font-medium">
             Hello, friend
           </h1>
-
-          <div className="text-center">{getEpisodeCountdown()}</div>
-          <div className="flex justify-center my-8">
-            <iframe
-              src="https://calendar.google.com/calendar/embed?height=800&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&showPrint=0&title=Mr%20Robot%20Watch%20Dates&showCalendars=0&src=bXJyb2JvdGNhbGVuZGFyQGdtYWlsLmNvbQ&color=%23D50000"
-              scrolling="no"
-              className="h-[500px] w-[800px] lg:h-[800px] lg:w-[1200px] rounded-md"
-            ></iframe>
+          <h2 className="text-center text-2xl mb-4">
+            To view this site, please answer the following questions:
+          </h2>
+          {data.map((question) => {
+            const [answerValue, setAnswerValue] = useState("");
+            return (
+              <div className="flex justify-center" key={question.id}>
+                <div className="flex-col">
+                  <p className="text-xl mt-2">{question.question}</p>
+                  <div className="flex justify-center">
+                    <input
+                      placeholder="enter answer here"
+                      className="p-2 my-2 border-2 border-red-500 rounded-md text-center"
+                      value={answerValue}
+                      onChange={(e) => setAnswerValue(e.target.value)}
+                      onBlur={enableButton}
+                    />
+                    {answerValue !== "" && checkAnswer(question, answerValue)}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          <div className="flex justify-center mt-8">
+            <button
+              className={`p-2 text-xl border-2 rounded-md font-medium ${
+                enterSiteEnabled
+                  ? "border-red-500 text-red-500 bg-gradient-to-r from-cyan-100"
+                  : "text-gray-500 border-gray-500"
+              }`}
+              disabled={!enterSiteEnabled}
+            >
+              <Link to="/calendar">Enter Site</Link>
+            </button>
           </div>
         </div>
       </div>

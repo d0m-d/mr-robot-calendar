@@ -7,7 +7,7 @@ export const NavBar = () => {
   const links = [
     {
       name: "Calendar",
-      route: "/",
+      route: "/calendar",
     },
     {
       name: "Full Series Timeline",
