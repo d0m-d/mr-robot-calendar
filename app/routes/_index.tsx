@@ -29,8 +29,10 @@ export default function Index() {
     answerInput: string
   ) => {
     if (
-      answerInput.toLowerCase().replace(/[^a-zA-Z ]/g, "") ===
-      question.answer.toLowerCase()
+      answerInput
+        .toLowerCase()
+        .replace(/[^a-zA-Z ]/g, "")
+        .trim() === question.answer.toLowerCase()
     ) {
       correctAnswers++;
       return <p className="ml-2 mt-2 font-bold text-green-500">✓</p>;
