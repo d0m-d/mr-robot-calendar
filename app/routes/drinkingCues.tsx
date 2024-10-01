@@ -46,7 +46,7 @@ export default function DrinkingCues() {
                     • {cue.cue}
                   </p>
                   {cue.notes && (
-                    <p className="ml-8 italic w-3/4 text-sm text-cyan-900">
+                    <p className="ml-8 italic w-7/8 lg:w-3/4 text-sm text-cyan-900">
                       {cue.notes}
                     </p>
                   )}
