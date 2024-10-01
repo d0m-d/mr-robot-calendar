@@ -3,21 +3,13 @@ import { PrismaClient } from "@prisma/client";
 async function seed() {
   const prisma = new PrismaClient();
   try {
-    await prisma.screeningQuestions.createMany({
-      data: [
-        {
-          question: "What is the title of Irving's book?",
-          answer: "Beach Towel",
-        },
-        {
-          question: "At what venue does the Deus Group meeting take place?",
-          answer: "Cipriani",
-        },
-        {
-          question: "What is the last line of the entire show?",
-          answer: "Hello Elliot",
-        },
-      ],
+    await prisma.drinkingCue.update({
+      where: {
+        id: "de5cf3a2-d30d-4cb0-9fad-2041ea42f8c8",
+      },
+      data: {
+        notes: null,
+      },
     });
   } catch (e) {
     console.log("Error seeding data:", e);

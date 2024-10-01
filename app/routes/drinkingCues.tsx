@@ -20,7 +20,7 @@ export default function DrinkingCues() {
             Drinking Game Cues
           </h1>
           <div className="mx-4 lg:flex lg:justify-between">
-            <div className="mt-8 lg:mt-0">
+            <div className="mt-8 lg:mt-0 w-1/3">
               <h2 className="text-xl font-semibold mb-4">Word cues</h2>
 
               {wordCues.map((cue) => (
@@ -29,7 +29,7 @@ export default function DrinkingCues() {
                 </p>
               ))}
             </div>
-            <div className="mt-8 lg:mt-0">
+            <div className="mt-8 lg:mt-0 w-1/3">
               <h2 className="text-xl font-semibold mb-4">Character cues</h2>
 
               {characterCues.map((cue) => (
@@ -38,12 +38,19 @@ export default function DrinkingCues() {
                 </p>
               ))}
             </div>
-            <div className="mt-8 lg:mt-0">
+            <div className="mt-8 lg:mt-0 w-1/3">
               <h2 className="text-xl font-semibold mb-4">Action cues</h2>
               {actionCues.map((cue) => (
-                <p className="mt-2 text-lg" key={cue.id}>
-                  • {cue.cue}
-                </p>
+                <div>
+                  <p className="mt-2 text-lg" key={cue.id}>
+                    • {cue.cue}
+                  </p>
+                  {cue.notes && (
+                    <p className="ml-8 italic w-3/4 text-sm text-cyan-900">
+                      {cue.notes}
+                    </p>
+                  )}
+                </div>
               ))}
             </div>
           </div>
