@@ -32,7 +32,7 @@ export const NavBar = () => {
           menu
         </button>
         {openMobileNav && (
-          <div className="bg-gray-100/85 rounded-md mt-2">
+          <div className="bg-black/90 text-white rounded-md mt-2">
             <ul className="flex flex-col items-center justify-between">
               {links.map((link, index) => (
                 <li className="font-semibold lowercase my-8" key={index}>
