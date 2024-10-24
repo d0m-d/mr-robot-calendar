@@ -42,9 +42,6 @@ export default function Index() {
     <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog top-32 md:top-0">
       <div className="px-4 min-h-screen md:flex md:items-center md:justify-center">
         <div className="bg-black text-white rounded-lg md:max-w-fit md:mx-auto p-4 lg:p-8 fixed inset-x-0 md:bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
-          {/* <h1 className="text-center text-3xl font-medium mb-2">
-            Hello, friend
-          </h1> */}
           <h1 className="text-center text-2xl mb-4">
             To view this site, please answer the following questions:
           </h1>
