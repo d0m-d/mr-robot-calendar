@@ -48,11 +48,11 @@ export default function Timeline() {
   return (
     <div>
       <div className="flex justify-center mt-4">
-        <div className="font-sans p-4 bg-gray-100/85 border-2 border-red-500 w-11/12 lg:w-3/4 pb-8 rounded-md">
+        <div className="font-sans text-white p-4 bg-black/90 border-2 border-red-500 w-11/12 lg:w-3/4 pb-8 rounded-md">
           <h1 className="text-center text-3xl lg:text-4xl font-semibold mb-2">
             Timeline of Episodes
           </h1>
-          <p className="text-center text-sm text-gray-800">
+          <p className="text-center text-sm text-gray-200">
             all dates are in the year 2015
           </p>
           {seasons.map((season, index) => (
@@ -125,10 +125,10 @@ export default function Timeline() {
           ))}
         </div>
       </div>
-      <p className="text-center mt-4 bg-cyan-100/50">
+      <p className="text-center mt-8 bg-gray-800/50">
         thank you to u/DesignerPhrase for providing detailed Season 1-3{" "}
         <Link
-          className="mx-2 font-semibold text-cyan-900"
+          className="mx-2 font-semibold text-gray-100"
           target="_blank"
           to="https://docs.google.com/spreadsheets/d/1kbgnagAGW7v0f9OzNSlL2XnA-pOwvscS2RJtbgT9ga8/edit?gid=0#gid=0"
         >

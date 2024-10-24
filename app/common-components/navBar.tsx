@@ -18,7 +18,7 @@ export const NavBar = () => {
       route: "/map",
     },
     {
-      name: "drinking game cues",
+      name: "drinking game",
       route: "/drinkingCues",
     },
   ];
@@ -26,7 +26,7 @@ export const NavBar = () => {
     <div>
       <div className="block lg:hidden m-4">
         <button
-          className="flex items-center px-3 py-2 border-2 bg-gradient-to-r from-cyan-100 to-white rounded text-red-500 border-red-500 font-bold text-xl mx-2.5"
+          className="flex items-center px-3 py-2 border-2 bg-black rounded text-red-500 border-red-500 font-bold text-xl mx-2.5"
           onClick={() => setOpenMobileNav(!openMobileNav)}
         >
           menu
@@ -43,7 +43,7 @@ export const NavBar = () => {
           </div>
         )}
       </div>
-      <div className="lg:flex justify-between hidden bg-gradient-to-r from-cyan-100 to-white px-8 py-2 mb-4">
+      <div className="lg:flex justify-between hidden bg-black px-8 py-2 mb-4">
         {links.map((link, index) => {
           return (
             <Link to={link.route} key={index}>

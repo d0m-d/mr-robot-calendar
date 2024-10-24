@@ -81,7 +81,7 @@ export default function Calendar() {
       if (!showConfetti) setShowConfetti(true);
       return (
         <div>
-          <div className="w-full text-xl text-center lg:text-2xl">
+          <div className="w-full text-xl text-center lg:text-2xl text-white">
             <p className="w-full font-bold text-red-500">
               EPISODE{nextEpisodes.length > 1 && "S"} TODAY:
             </p>
@@ -100,7 +100,7 @@ export default function Calendar() {
   return (
     <div ref={containerRef}>
       <div className="flex justify-center mb-8">
-        <div className="font-sans p-4 bg-gray-100/85 border-2 border-red-500 w-11/12 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
+        <div className="text-white font-sans p-4 bg-black border-2 border-red-500 w-11/12 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
           <h1 className="text-3xl md:text-5xl font-semibold mb-2 text-center">
             Hello, friend
           </h1>

@@ -44,12 +44,12 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
   });
   return (
     <div className="flex justify-center">
-      <div className="bg-slate-100/90 rounded-md lg:w-11/12 px-4">
+      <div className="bg-black text-white rounded-md lg:w-11/12 px-4">
         {episodeEventsByDate.map((eventDate) => {
           return (
             <div
               key={eventDate.date}
-              className="border-b-2 border-slate-300 last:border-0 py-2"
+              className="border-b-2 border-gray-800 last:border-0 py-2"
             >
               <div>
                 <p>{eventDate.events[0].dayOfWeek}</p>
@@ -81,7 +81,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                         {event.event}
                         {event.notes && (
                           <button
-                            className="text-sm ml-4 text-cyan-800"
+                            className="text-sm ml-4 text-red-300"
                             onClick={() => {
                               if (!eventSelected) {
                                 setSelectedNotes([...selectedNotes, event.id]);
@@ -99,7 +99,7 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
                     </div>
 
                     {eventSelected && event.notes && (
-                      <div className="m-2 border-2 rounded-md border-cyan-200 p-2 lg:w-2/3 mx-auto">
+                      <div className="m-2 border-2 rounded-md border-gray-700 p-2 lg:w-2/3 mx-auto">
                         <p className="lg:text-center">{event.notes}</p>
                       </div>
                     )}
