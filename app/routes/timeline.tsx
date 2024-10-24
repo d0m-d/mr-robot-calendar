@@ -125,10 +125,10 @@ export default function Timeline() {
           ))}
         </div>
       </div>
-      <p className="text-center mt-8 bg-gray-800/50">
+      <p className="text-center mt-8 bg-gray-800/50 text-white">
         thank you to u/DesignerPhrase for providing detailed Season 1-3{" "}
         <Link
-          className="mx-2 font-semibold text-gray-100"
+          className="mx-2 font-semibold text-gray-200"
           target="_blank"
           to="https://docs.google.com/spreadsheets/d/1kbgnagAGW7v0f9OzNSlL2XnA-pOwvscS2RJtbgT9ga8/edit?gid=0#gid=0"
         >
