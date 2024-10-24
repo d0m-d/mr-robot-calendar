@@ -21,7 +21,7 @@ export default function DrinkingCues() {
   return (
     <div>
       <div className="flex justify-center mb-8">
-        <div className="bg-black text-white w-11/12 lg:w-3/4 border-2 border-red-500 rounded-md lg:mt-8 p-4 lg:pb-8">
+        <div className="bg-black/90 text-white w-11/12 lg:w-3/4 border-2 border-red-500 rounded-md lg:mt-8 p-4 lg:pb-8">
           <h1 className="lg:text-4xl text-3xl font-semibold text-center mb-4">
             Drinking Game
           </h1>

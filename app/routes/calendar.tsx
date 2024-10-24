@@ -100,7 +100,7 @@ export default function Calendar() {
   return (
     <div ref={containerRef}>
       <div className="flex justify-center mb-8">
-        <div className="text-white font-sans p-4 bg-black border-2 border-red-500 w-11/12 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
+        <div className="text-white font-sans p-4 bg-black/90 border-2 border-red-500 w-11/12 lg:w-3/4 lg:mt-16 pb-8 rounded-md">
           <h1 className="text-3xl md:text-5xl font-semibold mb-2 text-center">
             Hello, friend
           </h1>
