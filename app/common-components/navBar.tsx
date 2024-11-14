@@ -21,6 +21,10 @@ export const NavBar = () => {
       name: "drinking game",
       route: "/drinkingCues",
     },
+    {
+      name: "contact/donate",
+      route: "/contact",
+    },
   ];
   return (
     <div>

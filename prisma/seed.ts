@@ -5,8 +5,8 @@ async function seed() {
   try {
     await prisma.drinkingCue.create({
       data: {
-        cue: "exploit",
-        type: "word",
+        cue: "Terry Colby says something crude",
+        type: "character",
       },
     });
   } catch (e) {
