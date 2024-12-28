@@ -36,16 +36,20 @@ export default function Calendar() {
       daysTilNextEpisode = parseInt(episodeDay) - currentDate.getDate();
     } else {
       if (currentMonth && episodeMonth) {
-        let monthDays = 0;
-        for (
-          let i = currentMonth.number - 1;
-          i < episodeMonth.number - 1;
-          i++
-        ) {
-          monthDays = monthDays + months[i].days;
+        if (currentMonth.number === 12 && episodeMonth.number === 2) {
+          daysTilNextEpisode = -1;
+        } else {
+          let monthDays = 0;
+          for (
+            let i = currentMonth.number - 1;
+            i < episodeMonth.number - 1;
+            i++
+          ) {
+            monthDays = monthDays + months[i].days;
+          }
+          daysTilNextEpisode =
+            parseInt(episodeDay) - currentDate.getDate() + monthDays;
         }
-        daysTilNextEpisode =
-          parseInt(episodeDay) - currentDate.getDate() + monthDays;
       }
     }
     if (daysTilNextEpisode && daysTilNextEpisode >= 1) {
@@ -77,7 +81,7 @@ export default function Calendar() {
           </div>
         </div>
       );
-    } else {
+    } else if (daysTilNextEpisode === 0) {
       if (!showConfetti) setShowConfetti(true);
       return (
         <div>
@@ -95,6 +99,8 @@ export default function Calendar() {
           </div>
         </div>
       );
+    } else {
+      return <div>come back next year</div>;
     }
   };
   return (
