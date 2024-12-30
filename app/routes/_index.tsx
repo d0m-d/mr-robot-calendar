@@ -13,7 +13,7 @@ export default function Index() {
       <div className="px-4 min-h-screen md:flex md:items-center md:justify-center">
         <div className="bg-black text-white rounded-lg md:max-w-fit md:mx-auto p-4 fixed inset-x-0 md:bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500 text-center items-center">
           <img
-            src="/app/img/riskaheadposter2.jpg"
+            src="/riskaheadposter2.jpg"
             className="border-2 rounded-md border-black place-self-center mt-4"
           />
           <h1 className="text-4xl mt-4 font-semibold">CAUTION!</h1>
