@@ -14,8 +14,6 @@ type LoaderType = Awaited<ReturnType<typeof loader>>;
 export default function Calendar() {
   const data = useLoaderData<LoaderType>();
   const currentDate = new Date();
-  const timezoneOffset = currentDate.getTimezoneOffset();
-  console.log(timezoneOffset);
   const currentMonth = months.find((month) =>
     month.name.includes(currentDate.toString().split(" ")[1])
   );
