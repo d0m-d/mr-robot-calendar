@@ -39,13 +39,19 @@ export default function Index() {
     } else return <p className="ml-2 mt-2 text-red-500">x</p>;
   };
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog top-32 md:top-0">
+    <div className="fixed inset-0 flex items-center justify-center z-50 confirm-dialog">
       <div className="px-4 min-h-screen md:flex md:items-center md:justify-center">
-        <div className="bg-black text-white rounded-lg md:max-w-fit md:mx-auto p-4 lg:p-8 fixed inset-x-0 md:bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500">
-          <h1 className="text-center text-2xl mb-4">
-            To view this site, please answer the following questions:
-          </h1>
-          {data.map((question) => {
+        <div className="bg-black text-white rounded-lg md:max-w-fit md:mx-auto p-4 fixed inset-x-0 md:bottom-0 z-50 mb-4 mx-4 md:relative shadow-lg border-4 border-red-500 text-center items-center">
+          <h1 className="text-4xl mb-4 font-semibold">CAUTION!</h1>
+          <img
+            src="/app/img/riskaheadposter2.jpg"
+            className="border-2 rounded-md border-black place-self-center"
+          />
+          <div className="text-xl font-medium p-2">
+            This website is full of spoilers. Please only proceed if you have
+            watched the entire series!
+          </div>
+          {/* {data.map((question) => {
             const [answerValue, setAnswerValue] = useState("");
             return (
               <div className="flex justify-center" key={question.id}>
@@ -66,16 +72,13 @@ export default function Index() {
                 </div>
               </div>
             );
-          })}
-          <div className="flex justify-center mt-8">
+          })} */}
+          <div className="flex justify-center mt-2">
             <Link to="/calendar">
               <button
-                disabled={!enterSiteEnabled}
-                className={`p-2 text-xl border-2 rounded-md font-medium ${
-                  enterSiteEnabled
-                    ? "border-red-500 text-red-500 bg-black"
-                    : "text-gray-500 border-gray-500"
-                }`}
+                className={
+                  "p-2 text-xl border-2 rounded-md font-medium border-red-500 text-red-500 bg-black"
+                }
               >
                 Enter Site
               </button>
