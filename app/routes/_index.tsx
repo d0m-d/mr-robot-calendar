@@ -20,7 +20,7 @@ export default function Index() {
 
           <div className="text-xl font-medium p-2">
             This website is full of spoilers. Please only proceed if you have
-            watched the entire series!
+            watched the ENTIRE series!
           </div>
           <div className="flex justify-center mt-2">
             <Link to="/calendar">
