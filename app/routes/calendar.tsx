@@ -1,9 +1,16 @@
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import { useEffect, useRef, useState } from "react";
 import { months } from "~/helpers/enums";
 import { generateConfetti } from "~/helpers/generateConfetti";
 import { findNextEpisodes } from "~/helpers/getNextEpisodes";
 import { db } from "~/utils/db.server";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Mr. Robot Episode Calendar" },
+    { name: "description", content: "Mr. Robot Episode Calendar" },
+  ];
+};
 
 export const loader = async () => {
   const data = await db.episode.findMany();

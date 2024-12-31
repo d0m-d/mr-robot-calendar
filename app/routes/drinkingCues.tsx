@@ -1,5 +1,12 @@
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import { db } from "~/utils/db.server";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Mr. Robot Drinking Game" },
+    { name: "description", content: "Mr. Robot Drinking Game" },
+  ];
+};
 
 export const loader = async () => {
   const data = await db.drinkingCue.findMany();

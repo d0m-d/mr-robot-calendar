@@ -1,3 +1,12 @@
+import { MetaFunction } from "@remix-run/react";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Mr. Robot Filming Locations" },
+    { name: "description", content: "Mr. Robot Filming Locations" },
+  ];
+};
+
 export default function Map() {
   return (
     <div>

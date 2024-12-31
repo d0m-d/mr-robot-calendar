@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, MetaFunction, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { formatDate } from "~/helpers/formatDate";
 import { findNextEpisodes } from "~/helpers/getNextEpisodes";
@@ -6,6 +6,12 @@ import { EpisodeType } from "~/helpers/types";
 import { EpisodeEvents } from "~/route-components/episodeEvents";
 import { db } from "~/utils/db.server";
 
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Mr. Robot Timeline" },
+    { name: "description", content: "Mr. Robot Timeline" },
+  ];
+};
 export const loader = async () => {
   const data = db.episode.findMany({
     include: {
