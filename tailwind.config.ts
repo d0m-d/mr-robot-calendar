@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        hero: "url('../app/img/season1wallpaper.jpg')",
+        hero: "url('../app/img/season4wallpaper.jpg')",
       },
     },
   },
