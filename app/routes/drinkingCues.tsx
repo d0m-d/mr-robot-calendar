@@ -58,7 +58,7 @@ export default function DrinkingCues() {
                 <div key={cue.id}>
                   <p className="mt-2 text-lg font-medium">• {cue.cue}</p>
                   {cue.notes && (
-                    <p className="ml-8 italic w-7/8 lg:w-3/4 text-sm text-red-200">
+                    <p className="ml-4 italic w-7/8 lg:w-3/4 text-sm text-red-200">
                       {cue.notes}
                     </p>
                   )}
