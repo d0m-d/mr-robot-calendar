@@ -35,7 +35,7 @@ export default function DrinkingCues() {
 
               {wordCues.map((cue) => (
                 <p className="mt-2 text-lg font-medium" key={cue.id}>
-                  • "{cue.cue}"
+                  • {cue.cue}
                 </p>
               ))}
             </div>
