@@ -26,7 +26,7 @@ export default function DrinkingCues() {
           <h1 className="lg:text-4xl text-3xl font-semibold text-center mb-4">
             Drinking Game
           </h1>
-          <div className="mx-4 lg:flex lg:justify-between">
+          <div className="lg:mx-4 lg:flex lg:justify-between">
             <div className="mt-8 lg:mt-0 lg:w-1/3">
               <h2 className="text-xl font-semibold mb-4 underline">
                 Word cues
