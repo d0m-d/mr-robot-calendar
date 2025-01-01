@@ -3,10 +3,13 @@ import { PrismaClient } from "@prisma/client";
 async function seed() {
   const prisma = new PrismaClient();
   try {
-    await prisma.drinkingCue.create({
+    await prisma.drinkingCue.update({
+      where: {
+        id: "8937c8fa-ca25-49be-850f-ab138ad4b93d",
+      },
       data: {
-        cue: "Elliot looks into the camera",
-        type: "character",
+        cue: "Trump reference",
+        notes: null,
       },
     });
   } catch (e) {

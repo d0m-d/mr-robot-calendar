@@ -16,15 +16,9 @@ type LoaderType = Awaited<ReturnType<typeof loader>>;
 
 export default function DrinkingCues() {
   const data = useLoaderData<LoaderType>();
-  const wordCues = data
-    .filter((cue) => cue.type === "word")
-    .sort((a, b) => a.cue.localeCompare(b.cue));
-  const characterCues = data
-    .filter((cue) => cue.type === "character")
-    .sort((a, b) => a.cue.localeCompare(b.cue));
-  const actionCues = data
-    .filter((cue) => cue.type === "action")
-    .sort((a, b) => a.cue.localeCompare(b.cue));
+  const wordCues = data.filter((cue) => cue.type === "word");
+  const characterCues = data.filter((cue) => cue.type === "character");
+  const actionCues = data.filter((cue) => cue.type === "action");
   return (
     <div>
       <div className="flex justify-center mb-8">
