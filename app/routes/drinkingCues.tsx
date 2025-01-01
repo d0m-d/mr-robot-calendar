@@ -19,6 +19,7 @@ export default function DrinkingCues() {
   const wordCues = data.filter((cue) => cue.type === "word");
   const characterCues = data.filter((cue) => cue.type === "character");
   const actionCues = data.filter((cue) => cue.type === "action");
+  const referenceCues = data.filter((cue) => cue.type === "reference");
   return (
     <div>
       <div className="flex justify-center mb-8">
@@ -26,8 +27,8 @@ export default function DrinkingCues() {
           <h1 className="lg:text-4xl text-3xl font-semibold text-center mb-4">
             Drinking Game
           </h1>
-          <div className="lg:mx-4 lg:flex lg:justify-between">
-            <div className="mt-8 lg:mt-0 lg:w-1/3">
+          <div className="w-full lg:mx-4 lg:flex lg:justify-between">
+            <div className="mt-8 lg:mt-0 lg:w-1/4">
               <h2 className="text-xl font-semibold mb-4 underline">
                 Word cues
               </h2>
@@ -38,7 +39,7 @@ export default function DrinkingCues() {
                 </p>
               ))}
             </div>
-            <div className="mt-8 lg:mt-0 lg:w-1/3">
+            <div className="mt-8 lg:mt-0 lg:w-1/2">
               <h2 className="text-xl font-semibold mb-4 underline">
                 Character cues
               </h2>
@@ -49,7 +50,7 @@ export default function DrinkingCues() {
                 </p>
               ))}
             </div>
-            <div className="mt-8 lg:mt-0 lg:w-1/3">
+            <div className="mt-8 lg:mt-0 lg:w-1/2">
               <h2 className="text-xl font-semibold mb-4 underline">
                 Action cues
               </h2>
@@ -62,6 +63,17 @@ export default function DrinkingCues() {
                     </p>
                   )}
                 </div>
+              ))}
+            </div>
+            <div className="mt-8 lg:mt-0 lg:w-1/4">
+              <h2 className="text-xl font-semibold mb-4 underline">
+                Reference cues
+              </h2>
+
+              {referenceCues.map((cue) => (
+                <p className="mt-2 text-lg font-medium" key={cue.id}>
+                  • {cue.cue}
+                </p>
               ))}
             </div>
           </div>
