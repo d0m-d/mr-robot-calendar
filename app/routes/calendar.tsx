@@ -126,6 +126,15 @@ export default function Calendar() {
               className="h-[500px] w-[800px] lg:h-[800px] lg:w-[1200px] rounded-md"
             ></iframe>
           </div>
+          <div className="flex justify-center">
+            <a
+              href="mrrobotcalendar@gmail.com.ical.zip"
+              download="mrrobotcalendar@gmail.com.ical.zip"
+              className="font-semibold border-2 p-2 rounded-md lg:w-1/6 text-center text-sky-300 border-sky-300"
+            >
+              Export Calendar
+            </a>
+          </div>
         </div>
       </div>
     </div>
