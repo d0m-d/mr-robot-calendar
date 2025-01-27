@@ -3,12 +3,12 @@ import { PrismaClient } from "@prisma/client";
 async function seed() {
   const prisma = new PrismaClient();
   try {
-    await prisma.episode.update({
+    await prisma.event.update({
       where: {
-        id: 304,
+        id: "80fbe806-8798-4ead-b3d6-c986ebaedbc5",
       },
       data: {
-        watchDate: "September 19",
+        notes: null,
       },
     });
   } catch (e) {

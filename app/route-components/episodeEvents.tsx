@@ -14,12 +14,14 @@ export const EpisodeEvents = ({ events }: EventsPropsType) => {
 
   const orderOfEvents: timesOfDay = {
     "after midnight": 1,
-    "early morning": 2,
-    morning: 3,
-    day: 4,
-    afternoon: 5,
-    evening: 6,
-    night: 7,
+    "3 AM": 2,
+    "early morning": 3,
+    morning: 4,
+    day: 5,
+    afternoon: 6,
+    "4:30 PM": 7,
+    evening: 8,
+    night: 9,
   };
 
   const chronologicalEvents = events.sort(
