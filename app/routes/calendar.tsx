@@ -1,4 +1,4 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { Link, MetaFunction, useLoaderData } from "@remix-run/react";
 import { useEffect, useRef, useState } from "react";
 import { months } from "~/helpers/enums";
 import { generateConfetti } from "~/helpers/generateConfetti";
@@ -134,6 +134,15 @@ export default function Calendar() {
             >
               Export Calendar
             </a>
+          </div>
+          <div className="flex justify-center mr-4 mt-4">
+            join the group rewatch
+            <Link
+              to="https://discord.gg/zAgcszeC"
+              className="font-medium text-sky-300 mx-2"
+            >
+              discord server
+            </Link>
           </div>
         </div>
       </div>

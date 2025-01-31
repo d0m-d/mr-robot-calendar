@@ -7,6 +7,16 @@ export default function Contact() {
         <h1 className="lg:text-4xl text-3xl font-semibold text-center mb-8">
           Contact
         </h1>
+        <p className="text-center mb-8 text-lg">
+          Join the
+          <Link
+            to="https://discord.gg/zAgcszeC"
+            className="text-red-300 text-xl mx-2"
+          >
+            discord server
+          </Link>
+          to participate in the group rewatch!
+        </p>
         <p className="text-center mb-2 text-lg">
           This site was independently developed by a single megafan. If you have
           any issues to report, feedback, or questions, feel free to reach out
@@ -18,6 +28,7 @@ export default function Contact() {
             mrrobotcalendar@gmail.com
           </span>
         </p>
+
         <p className="text-center mt-8 text-lg font-medium">
           enjoying this site? consider{" "}
           <Link
