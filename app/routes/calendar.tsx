@@ -139,7 +139,7 @@ export default function Calendar() {
             join the group rewatch
             <Link
               to="https://discord.gg/zAgcszeC"
-              className="font-medium text-sky-300 mx-2"
+              className="font-medium text-sky-300 ml-2"
             >
               discord server
             </Link>
