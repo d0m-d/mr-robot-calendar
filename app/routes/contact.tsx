@@ -11,7 +11,7 @@ export default function Contact() {
           Join the
           <Link
             to="https://discord.gg/zAgcszeC"
-            className="text-red-300 text-xl mx-2"
+            className="text-sky-300 text-xl mx-2"
           >
             discord server
           </Link>
@@ -33,7 +33,7 @@ export default function Contact() {
           enjoying this site? consider{" "}
           <Link
             to="http://venmo.com/domida222"
-            className="text-red-300 font-semibold"
+            className="text-sky-300 font-semibold"
           >
             donating
           </Link>
