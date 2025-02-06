@@ -135,7 +135,7 @@ export default function Calendar() {
               Export Calendar
             </a>
           </div>
-          <div className="flex justify-center mr-4 mt-4">
+          <div className="flex justify-center mt-4">
             join the group rewatch
             <Link
               to="https://discord.gg/zAgcszeC"
