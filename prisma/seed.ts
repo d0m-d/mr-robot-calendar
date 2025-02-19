@@ -3,12 +3,10 @@ import { PrismaClient } from "@prisma/client";
 async function seed() {
   const prisma = new PrismaClient();
   try {
-    await prisma.event.update({
-      where: {
-        id: "80fbe806-8798-4ead-b3d6-c986ebaedbc5",
-      },
+    await prisma.drinkingCue.create({
       data: {
-        notes: null,
+        cue: "the Inconspicious Couple following Angela appears",
+        type: "action",
       },
     });
   } catch (e) {

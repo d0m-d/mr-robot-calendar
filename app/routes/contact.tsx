@@ -10,7 +10,7 @@ export default function Contact() {
         <p className="text-center mb-8 text-lg">
           Join the
           <Link
-            to="https://discord.gg/zAgcszeC"
+            to="https://discord.com/invite/SQKrFdmmBw"
             className="text-sky-300 text-xl mx-2"
           >
             discord server

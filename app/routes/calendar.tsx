@@ -138,7 +138,7 @@ export default function Calendar() {
           <div className="flex justify-center mt-4">
             join the group rewatch
             <Link
-              to="https://discord.gg/zAgcszeC"
+              to="https://discord.com/invite/SQKrFdmmBw"
               className="font-medium text-sky-300 ml-2"
             >
               discord server
