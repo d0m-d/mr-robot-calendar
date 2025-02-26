@@ -19,7 +19,7 @@ export const NavBar = () => {
     },
     {
       name: "drinking game",
-      route: "/drinkingCues",
+      route: "/drinking-game",
     },
     {
       name: "contact/donate",

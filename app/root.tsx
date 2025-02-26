@@ -9,7 +9,6 @@ import {
 } from "@remix-run/react";
 import "./tailwind.css";
 import { NavBar } from "./common-components/navBar";
-import { Logger } from "pino";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
